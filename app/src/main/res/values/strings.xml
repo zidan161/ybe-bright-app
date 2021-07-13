@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">YBeBrightApp</string>
+    <string name="product">Produk</string>
+    <string name="agent">Keagenan</string>
+    <string name="support">Support</string>
+    <string name="news">Berita</string>
+    <string name="menu">menu</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="logo">logo</string>
+    <string name="how_to">How To</string>
+</resources>

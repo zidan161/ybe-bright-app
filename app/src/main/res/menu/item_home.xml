@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/product"
+        android:icon="@drawable/ic_product"
+        android:title="@string/product"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/member"
+        android:icon="@drawable/ic_agent"
+        android:title="@string/agent"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/support"
+        android:icon="@drawable/ic_support"
+        android:title="@string/support"
+        app:showAsAction="ifRoom"/>
+
+</menu>

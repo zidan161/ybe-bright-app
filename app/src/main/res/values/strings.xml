@@ -10,4 +10,28 @@
     <string name="email">Email</string>
     <string name="logo">logo</string>
     <string name="how_to">How To</string>
+
+    <string name="lorem_ipsum">Untuk informasi Cara Order Produk dan Pendaftaran Keagenan, silahkan hubungi admin kami :
+HP. 081393001500 / 0812-2626-5550 (WA Only)
+atau klik tombol dibawah ini :</string>
+    <string name="about1">YBe Bright merupakan salah satu produk unggulan Perusahaan CV. ESPANA CEMERLANG, yang bergerak di bidang penyediaan produk Kecantikan dan Skincare yang berkualitas dan bermutu tinggi.</string>
+    <string name="about2">YBe Bright Healty And Natural adalah Skincare Berbasis Natural yang berguna untuk meningkatkan kesehatan kulit maupun penunjang kesehatan lainnya. Produk ini aman digunakan dalam jangka waktu Panjang, terutama untuk IBU hamil dan menyusui.</string>
+    <string name="about3">Produk YBe Bright di produksi oleh pabrik yang berpengalaman di bidang Skincare Kosmetik dibawah pengawasan dokter kecantikan serta bersertifikat BPOM dan Halal.</string>
+    <string name="about4">Kantor pusat kami berlokasi di Semarang dan kegiatan operasional kami meliputi seluruh Kota di Indonesia. Untuk rencana ke depan, wilayah opersional kami akan diperluas ke seluruh wilayah Asia.</string>
+
+    <string-array name="product_name">
+        <item>BRIGHTENING GLOW</item>
+        <item>ACNE GLOW</item>
+        <item></item>
+    </string-array>
+
+    <array name="product_image">
+        <item>@drawable/brightening_glow</item>
+        <item>@drawable/acne_glow</item>
+    </array>
+
+    <integer-array name="product_price">
+        <item>10</item>
+    </integer-array>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/feed"
+        android:title="Home"
+        android:icon="@drawable/icon5"/>
+
+    <item
+        android:id="@+id/hi_dok"
+        android:title="Hi Dok!"
+        android:icon="@drawable/icon6"/>
+
+    <item
+        android:id="@+id/profile"
+        android:title="Profile"
+        android:icon="@drawable/icon7"/>
+</menu>

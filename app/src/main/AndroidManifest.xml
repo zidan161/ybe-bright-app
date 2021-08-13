@@ -9,18 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.YBeBrightApp">
-        <activity android:name=".LoginActivity"></activity>
-        <activity android:name=".ProfileActivity" />
-        <activity android:name=".AgentActivity" />
-        <activity android:name=".HowToActivity" />
-        <activity android:name=".product.ProductActivity" />
-        <activity android:name=".main.MainActivity">
+        <activity android:name=".IngredientActivity" />
+        <activity android:name=".AboutActivity" />
+        <activity android:name=".login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".agent.AgentActivity" />
+        <activity android:name=".HowToActivity" />
+        <activity android:name=".product.ProductActivity" />
+        <activity android:name=".main.MainActivity" />
     </application>
 
 </manifest>

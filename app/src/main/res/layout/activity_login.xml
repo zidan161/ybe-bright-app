@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".login.LoginActivity">
 
     <ImageView
         android:id="@+id/imageView"
@@ -19,73 +19,114 @@
         android:contentDescription="@string/logo" />
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="40dp"
         android:layout_marginTop="30dp"
         app:cardCornerRadius="20dp"
         app:cardElevation="8dp"
-        android:layout_margin="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" >
+        app:layout_constraintTop_toBottomOf="@+id/imageView">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="20dp">
 
             <TextView
+                android:id="@+id/txt_login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginBottom="20dp"
                 android:text="@string/login"
-                android:textSize="30dp"
-                android:layout_marginBottom="20dp"/>
+                android:textSize="30dp" />
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tl_id"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_below="@id/txt_login"
                 android:layout_marginBottom="20dp">
 
                 <EditText
+                    android:id="@+id/edt_id"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/email"
-                    android:inputType="textEmailAddress"/>
+                    android:hint="ID member"
+                    android:inputType="text" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
+            <ProgressBar
+                android:id="@+id/pg_id"
+                android:layout_width="30dp"
+                android:layout_height="0dp"
+                android:layout_alignTop="@+id/tl_id"
+                android:layout_alignBottom="@+id/tl_id"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="10dp"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/img_check"
+                android:layout_width="30dp"
+                android:layout_height="0dp"
+                android:layout_alignTop="@+id/tl_id"
+                android:layout_alignEnd="@+id/tl_id"
+                android:layout_alignBottom="@+id/tl_id"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/ic_check"
+                android:visibility="gone" />
+
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tl_phone"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                app:passwordToggleEnabled="true"
+                android:layout_below="@id/tl_id"
                 android:layout_marginBottom="20dp">
 
                 <EditText
+                    android:id="@+id/edt_phone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/password"
-                    android:inputType="textPassword" />
+                    android:hint="No. Telp"
+                    android:inputType="phone" />
 
             </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tv_skip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tl_phone"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="Skip >" />
 
             <Button
+                android:id="@+id/btn_login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/login"/>
+                android:layout_below="@id/tv_skip"
+                android:layout_marginTop="10dp"
+                android:text="@string/login" />
 
-        </LinearLayout>
+        </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Copyright © 2021 YBe Bright."
         android:layout_marginBottom="20dp"
         android:gravity="center"
+        android:text="Copyright © 2021 YBe Bright."
         app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

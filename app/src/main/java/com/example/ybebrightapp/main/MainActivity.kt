@@ -1,44 +1,63 @@
 package com.example.ybebrightapp.main
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
-import com.example.ybebrightapp.HowToActivity
+import com.example.ybebrightapp.Agent
+import com.example.ybebrightapp.HiDokFragment
 import com.example.ybebrightapp.R
 import com.example.ybebrightapp.databinding.ActivityMainBinding
-import com.example.ybebrightapp.product.ProductActivity
-import com.synnapps.carouselview.ImageListener
+import com.example.ybebrightapp.mainfragment.HomeFragment
+import com.example.ybebrightapp.mainfragment.ProfileFragment
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
-    private val data = listOf(R.drawable.download, R.drawable.download1, R.drawable.images)
-
-    var imageListener = ImageListener { position, imageView ->
-        imageView.setImageResource(data[position])
+    companion object {
+        const val DATA_KEY = "data_key"
     }
+
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.toolbar.setLogo(R.drawable.ybebright_logo_master_lanscape_small)
-        binding.toolbar.title = ""
-        setSupportActionBar(binding.toolbar)
+        val data: Agent? = intent.getParcelableExtra(DATA_KEY)
 
-        binding.mainCv.pageCount = data.size
-        binding.mainCv.setImageListener(imageListener)
+        supportFragmentManager.beginTransaction().add(
+            R.id.main_frame,
+            HomeFragment()
+        ).commit()
 
-        with(binding) {
-            btnPrice.setOnClickListener {
-                val intent = Intent(this@MainActivity, ProductActivity::class.java)
-                startActivity(intent)
-            }
-            btnHowto.setOnClickListener {
-                val intent = Intent(this@MainActivity, HowToActivity::class.java)
-                startActivity(intent)
+        binding.bottomNav.setOnNavigationItemSelectedListener {
+            when(it.itemId) {
+                R.id.feed -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.main_frame, HomeFragment())
+                        .commit()
+                    true
+                } R.id.profile -> {
+                    val profileFragment = ProfileFragment()
+                    if (data != null) {
+                        val bundle = Bundle()
+                        bundle.putParcelable(DATA_KEY, data)
+                        profileFragment.arguments = bundle
+                    }
+                    supportFragmentManager.beginTransaction()
+                        .replace(
+                            R.id.main_frame,
+                            profileFragment)
+                        .commit()
+                    true
+                } else -> {
+                supportFragmentManager.beginTransaction()
+                    .replace(
+                        R.id.main_frame,
+                        HiDokFragment())
+                    .commit()
+                true
+                }
             }
         }
     }

@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.YBeBrightApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#51E15E</item>
-        <item name="colorPrimaryVariant">#51BA5A</item>
+        <item name="colorPrimary">@color/tosca</item>
+        <item name="colorPrimaryVariant">#459BA6</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>

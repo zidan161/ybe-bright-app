@@ -7,10 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.ybebrightapp.HowToActivity
-import com.example.ybebrightapp.IngredientActivity
-import com.example.ybebrightapp.Product
-import com.example.ybebrightapp.R
+import com.example.ybebrightapp.*
 import com.example.ybebrightapp.agent.AgentActivity
 import com.example.ybebrightapp.databinding.FragmentHomeBinding
 import com.example.ybebrightapp.product.*
@@ -45,7 +42,7 @@ class HomeFragment : Fragment() {
                     startActivity(intent)
                 }
                 btnPrice.setOnClickListener {
-                    val intent = Intent(context, ProductActivity::class.java)
+                    val intent = Intent(context, PriceActivity::class.java)
                     startActivity(intent)
                 }
                 btnHowto.setOnClickListener {

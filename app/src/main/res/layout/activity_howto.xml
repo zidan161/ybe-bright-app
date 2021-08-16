@@ -35,7 +35,7 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_margin="20dp"
         app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -43,11 +43,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_page_des">
 
-        <TextView
+        <ImageView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/lorem_ipsum"
-            android:layout_margin="20dp" />
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/how_to" />
 
     </androidx.cardview.widget.CardView>
 

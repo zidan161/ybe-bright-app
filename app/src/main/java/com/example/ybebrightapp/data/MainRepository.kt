@@ -23,7 +23,9 @@ class MainRepository(private val local: LocalDataSource): DataSource {
 
     override fun getAllList(): List<Agent> = local.getListAuto()
 
-    override fun getListAgent(poin: Int): List<Agent> = local.getListAgent(poin)
+    override fun getListAgentTunggal(nik: String?, poin: Int): Agent? = local.getListAgentTunggal(nik, poin)
 
-    override fun getListReseller(poin: Int): List<Agent> = local.getListReseller(poin)
+    override fun getListAgent(nik: String?, poin: Int): Agent? = local.getListAgent(nik, poin)
+
+    override fun getListReseller(nik: String?, poin: Int): Agent? = local.getListReseller(nik, poin)
 }

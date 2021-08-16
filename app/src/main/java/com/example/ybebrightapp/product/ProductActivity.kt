@@ -15,15 +15,5 @@ class ProductActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityProductBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        val factory = ViewModelFactory.getInstance(this)
-        val viewModel = ViewModelProvider(this, factory)[ProductViewModel::class.java]
-
-        val adapter = ProductAdapter(this, viewModel.getProduct())
-
-        binding.rvProduct.apply {
-            this.adapter = adapter
-            layoutManager = GridLayoutManager(this@ProductActivity, 2)
-        }
     }
 }

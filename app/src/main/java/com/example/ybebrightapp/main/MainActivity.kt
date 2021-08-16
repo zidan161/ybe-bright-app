@@ -1,12 +1,13 @@
 package com.example.ybebrightapp.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ybebrightapp.Agent
-import com.example.ybebrightapp.HiDokFragment
 import com.example.ybebrightapp.R
 import com.example.ybebrightapp.databinding.ActivityMainBinding
+import com.example.ybebrightapp.hidok.HiDokActivity
 import com.example.ybebrightapp.mainfragment.HomeFragment
 import com.example.ybebrightapp.mainfragment.ProfileFragment
 
@@ -51,11 +52,9 @@ class MainActivity : AppCompatActivity() {
                         .commit()
                     true
                 } else -> {
-                supportFragmentManager.beginTransaction()
-                    .replace(
-                        R.id.main_frame,
-                        HiDokFragment())
-                    .commit()
+                val intent = Intent(this, HiDokActivity::class.java)
+                intent.putExtra("data", data)
+                startActivity(intent)
                 true
                 }
             }

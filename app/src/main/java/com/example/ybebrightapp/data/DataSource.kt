@@ -7,6 +7,7 @@ interface DataSource {
     fun getProduct(): List<Product>
     fun getNews()
     fun getAllList(): List<Agent>
-    fun getListAgent(poin: Int): List<Agent>
-    fun getListReseller(poin: Int): List<Agent>
+    fun getListAgentTunggal(nik: String?, poin: Int): Agent?
+    fun getListAgent(nik: String?, poin: Int): Agent?
+    fun getListReseller(nik: String?, poin: Int): Agent?
 }

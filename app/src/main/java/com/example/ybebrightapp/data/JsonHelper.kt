@@ -58,48 +58,69 @@ class JsonHelper(private val ctx: Context) {
         return list
     }
 
-    fun loadAgent(poin: Int): List<Agent> {
-        val list = ArrayList<Agent>()
+    fun loadAgentTunggal(nik: String?, poin: Int): Agent? {
+        var trueAgent: Agent? = null
         try {
             val responseObject = JSONObject(parsingFileToString("agen_tunggal.json").toString())
             val listArray = responseObject.getJSONArray("data")
             for (i in 0 until listArray.length()){
 
                 val data = listArray.getJSONObject(i)
+                if (data.getString("NIK").equals(nik)) {
+                    data.put("status", "Agen")
+                    data.put("poin", poin)
+                    val gson = Gson()
 
-                data.put("poin", poin)
-                data.put("status", "Agen")
-
-                val gson = Gson()
-
-                val agent = gson.fromJson(data.toString(), Agent::class.java)
-                list.add(agent)
+                    trueAgent = gson.fromJson(data.toString(), Agent::class.java)
+                }
             }
         } catch (e: JSONException){
             e.printStackTrace()
         }
-        return list
+        return trueAgent
     }
 
-    fun loadReseller(poin: Int): List<Agent> {
-        val list = ArrayList<Agent>()
+    fun loadAgent(nik: String?, poin: Int): Agent? {
+        var trueAgent: Agent? = null
+        try {
+            val responseObject = JSONObject(parsingFileToString("agen.json").toString())
+            val listArray = responseObject.getJSONArray("data")
+            for (i in 0 until listArray.length()){
+
+                val data = listArray.getJSONObject(i)
+                if (data.getString("NIK").equals(nik)) {
+                    data.put("status", "Reseller")
+                    data.put("poin", poin)
+                    val gson = Gson()
+
+                    trueAgent = gson.fromJson(data.toString(), Agent::class.java)
+                }
+            }
+        } catch (e: JSONException){
+            e.printStackTrace()
+        }
+        return trueAgent
+    }
+
+    fun loadReseller(nik: String?, poin: Int): Agent? {
+        var trueAgent: Agent? = null
         try {
             val responseObject = JSONObject(parsingFileToString("reseller.json").toString())
             val listArray = responseObject.getJSONArray("data")
             for (i in 0 until listArray.length()){
 
                 val data = listArray.getJSONObject(i)
-                data.put("poin", poin)
-                data.put("status", "Reseller")
+                if (data.getString("NIK").equals(nik)) {
+                    data.put("status", "Reseller")
+                    data.put("poin", poin)
+                    val gson = Gson()
 
-                val gson = Gson()
-
-                val agent = gson.fromJson(data.toString(), Agent::class.java)
-                list.add(agent)
+                    trueAgent = gson.fromJson(data.toString(), Agent::class.java)
+                }
             }
         } catch (e: JSONException){
             e.printStackTrace()
         }
-        return list
+        return trueAgent
     }
 }

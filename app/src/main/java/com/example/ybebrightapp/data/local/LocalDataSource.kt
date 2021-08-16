@@ -20,7 +20,9 @@ class LocalDataSource (private val helper: JsonHelper) {
 
     fun getListAuto(): List<Agent> = helper.loadAll()
 
-    fun getListAgent(poin: Int): List<Agent> = helper.loadAgent(poin)
+    fun getListAgentTunggal(nik: String?, poin: Int): Agent? = helper.loadAgentTunggal(nik, poin)
 
-    fun getListReseller(poin: Int): List<Agent> = helper.loadReseller(poin)
+    fun getListAgent(nik: String?, poin: Int): Agent? = helper.loadAgent(nik, poin)
+
+    fun getListReseller(nik: String?, poin: Int): Agent? = helper.loadReseller(nik, poin)
 }

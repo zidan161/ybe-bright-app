@@ -8,7 +8,9 @@ class AgentViewModel(private val repository: MainRepository): ViewModel() {
 
     fun getAllList(): List<Agent> = repository.getAllList()
 
-    fun getListAgent(poin: Int): List<Agent> = repository.getListAgent(poin)
+    fun getListAgentTunggal(nik: String?, poin: Int): Agent? = repository.getListAgentTunggal(nik, poin)
 
-    fun getListReseller(poin: Int): List<Agent> = repository.getListReseller(poin)
+    fun getListAgent(nik: String?, poin: Int): Agent? = repository.getListAgent(nik, poin)
+
+    fun getListReseller(nik: String?, poin: Int): Agent? = repository.getListReseller(nik, poin)
 }

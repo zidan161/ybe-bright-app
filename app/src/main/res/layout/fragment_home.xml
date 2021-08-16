@@ -209,28 +209,6 @@
                 app:layout_constraintStart_toStartOf="@+id/menu_layout"
                 app:layout_constraintTop_toBottomOf="@+id/tv_product" />
 
-            <TextView
-                android:id="@+id/tv_news"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="Berita Terkini"
-                android:layout_marginTop="20dp"
-                android:paddingHorizontal="10dp"
-                android:textSize="20sp"
-                android:textColor="@color/tosca"
-                app:layout_constraintEnd_toEndOf="@+id/menu_layout"
-                app:layout_constraintStart_toStartOf="@+id/menu_layout"
-                app:layout_constraintTop_toBottomOf="@+id/rv_product" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="@+id/menu_layout"
-                app:layout_constraintStart_toStartOf="@+id/menu_layout"
-                app:layout_constraintTop_toBottomOf="@id/tv_news"
-                tools:listitem="@layout/item_news" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>

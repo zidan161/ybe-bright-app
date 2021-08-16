@@ -7,6 +7,7 @@ import android.view.View
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
 import com.example.ybebrightapp.Agent
+import com.example.ybebrightapp.RegisterActivity
 import com.example.ybebrightapp.agent.AgentViewModel
 import com.example.ybebrightapp.databinding.ActivityLoginBinding
 import com.example.ybebrightapp.main.MainActivity
@@ -56,25 +57,13 @@ class LoginActivity : AppCompatActivity() {
         }
 
         id.observe(this) { agent ->
-            var isAgent = false
 
-            val listAgent = viewModel.getListAgent(agent.poin)
-            val listReseller = viewModel.getListReseller(agent.poin)
-            for (i in listAgent) {
-                if (i.id == agent.id) {
-                    fixedData = i
-                    isAgent = true
-                    break
-                }
-            }
-            if (!isAgent) {
-                for (i in listReseller) {
-                    if (i.id == agent.id) {
-                        fixedData = i
-                        break
-                    }
-                }
-            }
+            val listAgent = viewModel.getListAgent(agent.nik, agent.poin)
+            val listAgentTunggal = viewModel.getListAgentTunggal(agent.nik, agent.poin)
+            val listReseller = viewModel.getListReseller(agent.nik, agent.poin)
+
+            fixedData = listAgent ?: listAgentTunggal ?: listReseller
+
             binding.pgId.visibility = View.GONE
             binding.imgCheck.visibility = View.VISIBLE
         }
@@ -89,6 +78,11 @@ class LoginActivity : AppCompatActivity() {
                     binding.edtPhone.error = "Nomor telepon tidak sesuai!"
                 }
             }
+        }
+
+        binding.btnRegister.setOnClickListener {
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
         }
     }
 }

@@ -13,7 +13,7 @@ data class Agent(
     @SerializedName("poin")
     var poin: Int,
     @SerializedName("NIK")
-    var nik: String,
+    var nik: String?,
     @SerializedName("E-mail")
     var email: String = "",
     @SerializedName("Alamat Domisili")

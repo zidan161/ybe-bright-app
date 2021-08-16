@@ -5,11 +5,12 @@
     <string name="support">Support</string>
     <string name="news">Berita</string>
     <string name="menu">menu</string>
-    <string name="login">Login</string>
+    <string name="login">Masuk</string>
     <string name="password">Password</string>
     <string name="email">Email</string>
     <string name="logo">logo</string>
     <string name="how_to">How To</string>
+    <string name="payment">Untuk pembayaran bisa langsung transfer ke nomor rek. berikut</string>
 
     <string name="lorem_ipsum">Untuk informasi Cara Order Produk dan Pendaftaran Keagenan, silahkan hubungi admin kami :
 HP. 081393001500 / 0812-2626-5550 (WA Only)
@@ -22,16 +23,22 @@ atau klik tombol dibawah ini :</string>
     <string-array name="product_name">
         <item>BRIGHTENING GLOW</item>
         <item>ACNE GLOW</item>
-        <item></item>
+        <item>FACIAL WASH</item>
+        <item>DAY CREAM</item>
+        <item>NIGHT CREAM</item>
+        <item>SERUM BRIGHTENING</item>
+        <item>SERUM ACNE</item>
+        <item>TONER</item>
     </string-array>
 
     <array name="product_image">
         <item>@drawable/brightening_glow</item>
         <item>@drawable/acne_glow</item>
+        <item>@drawable/facial_wash</item>
+        <item>@drawable/day_cream</item>
+        <item>@drawable/night_cream</item>
+        <item>@drawable/serum_brightening</item>
+        <item>@drawable/serum_acne</item>
+        <item>@drawable/toner</item>
     </array>
-
-    <integer-array name="product_price">
-        <item>10</item>
-    </integer-array>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -6,11 +6,13 @@ import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
-import com.example.ybebrightapp.Agent
+import com.example.ybebrightapp.model.Agent
 import com.example.ybebrightapp.RegisterActivity
 import com.example.ybebrightapp.agent.AgentViewModel
 import com.example.ybebrightapp.databinding.ActivityLoginBinding
 import com.example.ybebrightapp.main.MainActivity
+import com.example.ybebrightapp.utils.hideKeyboard
+import com.example.ybebrightapp.utils.showLoading
 import com.example.ybebrightapp.viewmodel.ViewModelFactory
 
 class LoginActivity : AppCompatActivity() {
@@ -30,7 +32,7 @@ class LoginActivity : AppCompatActivity() {
         val allData = viewModel.getAllList()
         val id = MutableLiveData<Agent>()
 
-        binding.tvSkip.setOnClickListener {
+        binding.btnSkip.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
@@ -47,6 +49,7 @@ class LoginActivity : AppCompatActivity() {
                         id.value = i
                         break
                     }
+
                     count++
                     if (count == allData.size) {
                         binding.pgId.visibility = View.GONE
@@ -69,6 +72,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         binding.btnLogin.setOnClickListener {
+            hideKeyboard()
             if (fixedData != null) {
                 if (binding.edtPhone.text.toString() == fixedData?.phone) {
                     val intent = Intent(this, MainActivity::class.java)
@@ -81,6 +85,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         binding.btnRegister.setOnClickListener {
+            hideKeyboard()
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         }

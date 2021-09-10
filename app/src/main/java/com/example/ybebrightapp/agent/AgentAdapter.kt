@@ -3,7 +3,7 @@ package com.example.ybebrightapp.agent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.ybebrightapp.Agent
+import com.example.ybebrightapp.model.Agent
 import com.example.ybebrightapp.databinding.ItemAgentBinding
 
 class AgentAdapter(private val data: List<Agent>): RecyclerView.Adapter<AgentAdapter.AgentViewHolder>() {
@@ -23,7 +23,7 @@ class AgentAdapter(private val data: List<Agent>): RecyclerView.Adapter<AgentAda
         fun bind(agent: Agent) {
             with(binding) {
                 tvName.text = agent.name
-                tvId.text = agent.id
+                tvAddress.text = "${agent.address}, ${agent.city}"
                 tvPhone.text = agent.phone
             }
         }

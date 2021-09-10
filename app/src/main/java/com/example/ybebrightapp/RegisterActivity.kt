@@ -20,18 +20,28 @@ class RegisterActivity : AppCompatActivity() {
 
         binding.btnRegister.setOnClickListener {
             with(binding) {
+                val id = edtId.text.toString().trim()
                 val name = edtName.text.toString()
                 val nik = edtNik.text.toString().trim()
+                val rek = edtRek.text.toString().trim()
                 val phone = edtPhone.text.toString().trim()
                 val email = edtEmail.text.toString().trim()
                 val address = edtAddress.text.toString()
 
+                if (id.isEmpty()) {
+                    edtId.error = "Field ini harus diisi!"
+                    return@setOnClickListener
+                }
                 if (name.isEmpty()) {
                     edtName.error = "Field ini harus diisi!"
                     return@setOnClickListener
                 }
                 if (nik.isEmpty()) {
                     edtNik.error = "Field ini harus diisi!"
+                    return@setOnClickListener
+                }
+                if (rek.isEmpty()) {
+                    edtRek.error = "Field ini harus diisi!"
                     return@setOnClickListener
                 }
                 if (phone.isEmpty()) {
@@ -48,8 +58,10 @@ class RegisterActivity : AppCompatActivity() {
                 }
 
                 val data = hashMapOf(
+                    "ID Referensi" to id,
                     "Nama" to name,
                     "NIK" to nik,
+                    "Rek" to rek,
                     "Phone" to phone,
                     "Email" to email,
                     "Alamat" to address)

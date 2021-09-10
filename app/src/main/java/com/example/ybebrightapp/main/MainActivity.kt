@@ -4,12 +4,16 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
-import com.example.ybebrightapp.Agent
+import com.bumptech.glide.Glide
+import com.example.ybebrightapp.model.Agent
 import com.example.ybebrightapp.R
 import com.example.ybebrightapp.databinding.ActivityMainBinding
+import com.example.ybebrightapp.databinding.DialogImageBinding
+import com.example.ybebrightapp.hidok.ConsulActivity
 import com.example.ybebrightapp.hidok.HiDokActivity
-import com.example.ybebrightapp.mainfragment.HomeFragment
-import com.example.ybebrightapp.mainfragment.ProfileFragment
+import com.example.ybebrightapp.mainpage.HomeFragment
+import com.example.ybebrightapp.mainpage.ProfileFragment
+import com.example.ybebrightapp.utils.showAlert
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,17 +29,25 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val data: Agent? = intent.getParcelableExtra(DATA_KEY)
+        val preferences = getSharedPreferences("myShared", MODE_PRIVATE)
 
+        createAlert(R.drawable.pop_up)
+
+        val fragment = HomeFragment()
+        if (data != null) {
+            val bundle = Bundle()
+            bundle.putParcelable(DATA_KEY, data)
+            fragment.arguments = bundle
+        }
         supportFragmentManager.beginTransaction().add(
-            R.id.main_frame,
-            HomeFragment()
+            R.id.main_frame, fragment
         ).commit()
 
         binding.bottomNav.setOnNavigationItemSelectedListener {
             when(it.itemId) {
                 R.id.feed -> {
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.main_frame, HomeFragment())
+                        .replace(R.id.main_frame, fragment)
                         .commit()
                     true
                 } R.id.profile -> {
@@ -52,13 +64,26 @@ class MainActivity : AppCompatActivity() {
                         .commit()
                     true
                 } else -> {
-                val intent = Intent(this, HiDokActivity::class.java)
-                intent.putExtra("data", data)
-                startActivity(intent)
+                if (preferences.getBoolean("isFirst", true)) {
+                    val intent = Intent(this, ConsulActivity::class.java)
+                    intent.putExtra("data", data)
+                    startActivity(intent)
+                    preferences.edit().putBoolean("isFirst", false).apply()
+                } else {
+                    val intent = Intent(this, HiDokActivity::class.java)
+                    intent.putExtra("data", data)
+                    startActivity(intent)
+                }
                 true
                 }
             }
         }
+    }
+
+    private fun createAlert(img: Int) {
+        val binding = DialogImageBinding.inflate(layoutInflater)
+        Glide.with(this).load(img).into(binding.imgView)
+        showAlert(this, binding.root, true).show()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

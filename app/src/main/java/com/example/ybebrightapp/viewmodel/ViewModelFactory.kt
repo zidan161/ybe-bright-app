@@ -3,9 +3,10 @@ package com.example.ybebrightapp.viewmodel
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.example.ybebrightapp.ProfileViewModel
+import com.example.ybebrightapp.checkout.CheckoutViewModel
 import com.example.ybebrightapp.agent.AgentViewModel
 import com.example.ybebrightapp.data.MainRepository
-import com.example.ybebrightapp.main.MainViewModel
 import com.example.ybebrightapp.product.ProductViewModel
 import com.example.ybebrightapp.utils.Injection
 
@@ -32,8 +33,11 @@ class ViewModelFactory(private val repository: MainRepository): ViewModelProvide
             modelClass.isAssignableFrom(ProductViewModel::class.java) -> {
                 ProductViewModel(repository) as T
             }
-            modelClass.isAssignableFrom(MainViewModel::class.java) -> {
-                MainViewModel(repository) as T
+            modelClass.isAssignableFrom(CheckoutViewModel::class.java) -> {
+                CheckoutViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(ProfileViewModel::class.java) -> {
+                ProfileViewModel(repository) as T
             }
             else -> throw Throwable("Unknown ViewModel class: " + modelClass.name)
         }

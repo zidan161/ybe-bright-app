@@ -44,11 +44,26 @@
                 android:layout_marginBottom="20dp">
 
                 <EditText
+                    android:id="@+id/edt_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="ID Referensi"
+                    android:inputType="textCapCharacters" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp">
+
+                <EditText
                     android:id="@+id/edt_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Nama"
-                    android:inputType="textCapSentences" />
+                    android:inputType="textCapWords" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -63,6 +78,21 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="No. KTP"
+                    android:inputType="numberDecimal" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp">
+
+                <EditText
+                    android:id="@+id/edt_rek"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="No. Rek"
                     android:inputType="numberDecimal" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -108,7 +138,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Alamat"
-                    android:maxLines="3"
+                    android:lines="3"
                     android:inputType="phone" />
 
             </com.google.android.material.textfield.TextInputLayout>

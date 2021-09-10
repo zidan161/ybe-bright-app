@@ -11,6 +11,9 @@
     <string name="logo">logo</string>
     <string name="how_to">How To</string>
     <string name="payment">Untuk pembayaran bisa langsung transfer ke nomor rek. berikut</string>
+    <string name="pick_single">Please select your image</string>
+
+    <string name="file_provider" translatable="false">com.example.ybebrightapp.fileprovider</string>
 
     <string name="lorem_ipsum">Untuk informasi Cara Order Produk dan Pendaftaran Keagenan, silahkan hubungi admin kami :
 HP. 081393001500 / 0812-2626-5550 (WA Only)
@@ -19,16 +22,18 @@ atau klik tombol dibawah ini :</string>
     <string name="about2">YBe Bright Healty And Natural adalah Skincare Berbasis Natural yang berguna untuk meningkatkan kesehatan kulit maupun penunjang kesehatan lainnya. Produk ini aman digunakan dalam jangka waktu Panjang, terutama untuk IBU hamil dan menyusui.</string>
     <string name="about3">Produk YBe Bright di produksi oleh pabrik yang berpengalaman di bidang Skincare Kosmetik dibawah pengawasan dokter kecantikan serta bersertifikat BPOM dan Halal.</string>
     <string name="about4">Kantor pusat kami berlokasi di Semarang dan kegiatan operasional kami meliputi seluruh Kota di Indonesia. Untuk rencana ke depan, wilayah opersional kami akan diperluas ke seluruh wilayah Asia.</string>
+    <string name="p_jawa_bali">P. Jawa &amp; Bali</string>
+    <string name="luar_jawa_bali">Luar P. Jawa &amp; Bali</string>
 
     <string-array name="product_name">
-        <item>BRIGHTENING GLOW</item>
-        <item>ACNE GLOW</item>
-        <item>FACIAL WASH</item>
-        <item>DAY CREAM</item>
-        <item>NIGHT CREAM</item>
-        <item>SERUM BRIGHTENING</item>
-        <item>SERUM ACNE</item>
-        <item>TONER</item>
+        <item>Brightening Glow</item>
+        <item>Acne Glow</item>
+        <item>Facial Wash</item>
+        <item>Day Cream</item>
+        <item>Night Cream</item>
+        <item>Serum Brightening</item>
+        <item>Serum Acne</item>
+        <item>Toner</item>
     </string-array>
 
     <array name="product_image">
@@ -41,4 +46,6 @@ atau klik tombol dibawah ini :</string>
         <item>@drawable/serum_acne</item>
         <item>@drawable/toner</item>
     </array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

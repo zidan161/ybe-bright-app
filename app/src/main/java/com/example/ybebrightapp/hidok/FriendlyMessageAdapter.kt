@@ -1,85 +1,106 @@
 package com.example.ybebrightapp.hidok
 
-import android.graphics.Color
+import android.app.Activity
 import android.util.Log
+import android.view.KeyEvent
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView.*
+import com.bumptech.glide.Glide
 import com.example.ybebrightapp.R
-import com.example.ybebrightapp.databinding.ImageMessageBinding
-import com.example.ybebrightapp.databinding.MessageBinding
+import com.example.ybebrightapp.databinding.DialogImageBinding
+import com.example.ybebrightapp.databinding.MessageMeBinding
+import com.example.ybebrightapp.databinding.MessageYouBinding
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
-import com.example.ybebrightapp.hidok.HiDokActivity.Companion.ANONYMOUS
 import com.example.ybebrightapp.hidok.model.FriendlyMessage
+import com.example.ybebrightapp.utils.showAlert
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
-import com.squareup.picasso.Picasso
 
-class FriendlyMessageAdapter(private val options: FirebaseRecyclerOptions<FriendlyMessage>,
-    private val currentUserName: String?) : FirebaseRecyclerAdapter<FriendlyMessage, ViewHolder>(options) {
+class FriendlyMessageAdapter(private val activity: Activity,
+    private val options: FirebaseRecyclerOptions<FriendlyMessage>) : FirebaseRecyclerAdapter<FriendlyMessage, ViewHolder>(options) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        return if (viewType == VIEW_TYPE_TEXT) {
-            val view = inflater.inflate(R.layout.message, parent, false)
-            val binding = MessageBinding.bind(view)
+        return if (viewType == VIEW_TYPE_ME) {
+            val view = inflater.inflate(R.layout.message_me, parent, false)
+            val binding = MessageMeBinding.bind(view)
             MessageViewHolder(binding)
         } else {
-            val view = inflater.inflate(R.layout.image_message, parent, false)
-            val binding = ImageMessageBinding.bind(view)
-            ImageMessageViewHolder(binding)
+            val view = inflater.inflate(R.layout.message_you, parent, false)
+            val binding = MessageYouBinding.bind(view)
+            MessageYouViewHolder(binding)
         }
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int, model: FriendlyMessage) {
-        if (options.snapshots[position].text != null) {
+        if (options.snapshots[position].isMe) {
             (holder as MessageViewHolder).bind(model)
         } else {
-            (holder as ImageMessageViewHolder).bind(model)
+            (holder as MessageYouViewHolder).bind(model)
         }
     }
 
     override fun getItemViewType(position: Int): Int {
-        return if (options.snapshots[position].text != null) VIEW_TYPE_TEXT else VIEW_TYPE_IMAGE
+        return if (options.snapshots[position].isMe) VIEW_TYPE_ME else VIEW_TYPE_ADMIN
     }
 
-    inner class MessageViewHolder(private val binding: MessageBinding) : ViewHolder(binding.root) {
+    inner class MessageViewHolder(private val binding: MessageMeBinding) : ViewHolder(binding.root) {
         fun bind(item: FriendlyMessage) {
-            binding.messageTextView.text = item.text
-            setTextColor(item.name, binding.messageTextView)
+            if (item.imageUrl != null) {
+                if (item.imageUrl == HiDokActivity.LOADING_IMAGE_URL) {
+                    binding.messageImageView.maxHeight = 100
+                    binding.messageImageView.maxWidth = 100
+                }
+                binding.messageTextView.visibility = View.INVISIBLE
+                binding.messageImageView.visibility = View.VISIBLE
+                loadImageIntoView(binding.messageImageView, item.imageUrl!!)
 
-            binding.messengerTextView.text = if (item.name == null) ANONYMOUS else item.name
-            if (item.photoUrl != null) {
-                loadImageIntoView(binding.messengerImageView, item.photoUrl!!)
+                val bind = DialogImageBinding.inflate(activity.layoutInflater)
+                binding.messageImageView.setOnClickListener {
+                    Glide.with(activity).load(item.imageUrl).into(bind.imgView)
+                    showAlert(activity, bind.root, true)
+                        .setOnKeyListener { dialog, keyCode, event ->
+                            if (keyCode == KeyEvent.KEYCODE_BACK) {
+                                dialog.cancel()
+                            }
+                           true
+                        }
+                }
             } else {
-                binding.messengerImageView.setImageResource(R.drawable.ic_account_circle)
-            }
-        }
-
-        private fun setTextColor(userName: String?, textView: TextView) {
-            if (userName != ANONYMOUS && currentUserName == userName && userName != null) {
-                textView.setBackgroundResource(R.drawable.rounded_message_blue)
-                textView.setTextColor(Color.WHITE)
-            } else {
-                textView.setBackgroundResource(R.drawable.rounded_message_gray)
-                textView.setTextColor(Color.BLACK)
+                binding.messageTextView.text = item.text
             }
         }
     }
 
-    inner class ImageMessageViewHolder(private val binding: ImageMessageBinding) :
+    inner class MessageYouViewHolder(private val binding: MessageYouBinding) :
         ViewHolder(binding.root) {
         fun bind(item: FriendlyMessage) {
-            loadImageIntoView(binding.messageImageView, item.imageUrl!!)
+            if (item.imageUrl != null) {
+                if (item.imageUrl == HiDokActivity.LOADING_IMAGE_URL) {
+                    binding.messageImageView.maxHeight = 100
+                    binding.messageImageView.maxWidth = 100
+                }
+                binding.messageTextView.visibility = View.INVISIBLE
+                binding.messageImageView.visibility = View.VISIBLE
+                loadImageIntoView(binding.messageImageView, item.imageUrl!!)
 
-            binding.messengerTextView.text = if (item.name == null) ANONYMOUS else item.name
-            if (item.photoUrl != null) {
-                loadImageIntoView(binding.messengerImageView, item.photoUrl!!)
+                val bind = DialogImageBinding.inflate(activity.layoutInflater)
+                binding.messageImageView.setOnClickListener {
+                    Glide.with(activity).load(item.imageUrl).into(bind.imgView)
+                    showAlert(activity, bind.root, true)
+                        .setOnKeyListener { dialog, keyCode, event ->
+                            if (keyCode == KeyEvent.KEYCODE_BACK) {
+                                dialog.cancel()
+                            }
+                            true
+                        }
+                }
             } else {
-                binding.messengerImageView.setImageResource(R.drawable.ic_account_circle)
+                binding.messageTextView.text = item.text
             }
         }
     }
@@ -90,8 +111,9 @@ class FriendlyMessageAdapter(private val options: FirebaseRecyclerOptions<Friend
             storageReference.downloadUrl
                 .addOnSuccessListener { uri ->
                     val downloadUrl = uri.toString()
-                    Picasso.get()
+                    Glide.with(view.context)
                         .load(downloadUrl)
+                        .centerCrop()
                         .into(view)
                 }
                 .addOnFailureListener { e ->
@@ -101,13 +123,13 @@ class FriendlyMessageAdapter(private val options: FirebaseRecyclerOptions<Friend
                     )
                 }
         } else {
-            Picasso.get().load(url).into(view)
+            Glide.with(view.context).load(url).into(view)
         }
     }
 
     companion object {
         const val TAG = "MessageAdapter"
-        const val VIEW_TYPE_TEXT = 1
-        const val VIEW_TYPE_IMAGE = 2
+        const val VIEW_TYPE_ME = 1
+        const val VIEW_TYPE_ADMIN = 2
     }
 }

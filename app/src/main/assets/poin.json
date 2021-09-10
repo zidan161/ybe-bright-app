@@ -1,0 +1,89 @@
+{
+	"data": [
+	    {
+			"poin": 50,
+			"rupiah": 350000,
+			"tukar": "Uang Tunai"
+	    },
+		{
+			"poin": 100,
+			"rupiah": 700000,
+			"tukar": "Uang Tunai"
+		},
+		{
+			"poin": 150,
+			"rupiah": 1050000,
+			"tukar": "Emas 1 gram"
+		},
+		{
+			"poin": 200,
+			"rupiah": 1400000,
+			"tukar": "Handphone"
+		},
+		{
+			"poin": 300,
+			"rupiah": 2100000,
+			"tukar": "Emas 2 gram"
+		},
+		{
+			"poin": 450,
+			"rupiah": 3150000,
+			"tukar": "Emas 3 gram"
+		},
+		{
+			"poin": 500,
+			"rupiah": 3500000,
+			"tukar": "Handphone"
+		},
+		{
+			"poin": 750,
+			"rupiah": 5250000,
+			"tukar": "Emas 5 gram"
+		},
+		{
+			"poin": 1000,
+			"rupiah": 7000000,
+			"tukar": "Handphone"
+		},
+		{
+			"poin": 1500,
+			"rupiah": 10500000,
+			"tukar": "Emas 10 gram"
+		},
+		{
+			"poin": 2000,
+			"rupiah": 14000000,
+			"tukar": "Motor Genio"
+		},
+		{
+			"poin": 3000,
+			"rupiah": 21000000,
+			"tukar": "Umroh/Tour Eropa"
+		},
+		{
+			"poin": 3500,
+			"rupiah": 24500000,
+			"tukar": "Motor Yamaha Nmax"
+		},
+		{
+			"poin": 18000,
+			"rupiah": 126000000,
+			"tukar": "Mobil Honda Brio"
+		},
+		{
+			"poin": 30000,
+			"rupiah": 210000000,
+			"tukar": "Mobil Mitsubishi Xpander"
+		},
+		{
+			"poin": 70000,
+			"rupiah": 490000000,
+			"tukar": "Mobil Mitsubishi Pajero"
+		},
+		{
+			"poin": 100000,
+			"rupiah": 700000000,
+			"tukar": "Rumah"
+		}
+	]
+}

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/card_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -13,22 +13,8 @@
         android:layout_height="wrap_content"
         android:text="Windah"
         android:textSize="18sp"
+        android:layout_marginBottom="10dp"
         android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/tv_txt_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_name"
-        android:text="ID Agen"
-        android:textColor="@color/tosca" />
-
-    <TextView
-        android:id="@+id/tv_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_txt_id"
-        android:text="12345679891"/>
 
     <TextView
         android:id="@+id/tv_txt_phone"
@@ -49,6 +35,20 @@
         android:layout_below="@+id/tv_txt_phone"
         android:layout_alignStart="@+id/tv_txt_phone"
         android:layout_alignParentEnd="true"
-        android:text="08123456789"/>
+        android:layout_marginBottom="10dp"/>
 
-</RelativeLayout>
+    <TextView
+        android:id="@+id/tv_txt_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_name"
+        android:text="Alamat"
+        android:textColor="@color/tosca" />
+
+    <TextView
+        android:id="@+id/tv_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_txt_rek"/>
+
+</LinearLayout>

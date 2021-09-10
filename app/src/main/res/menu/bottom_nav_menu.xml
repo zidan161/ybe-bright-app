@@ -4,15 +4,15 @@
     <item
         android:id="@+id/feed"
         android:title="Home"
-        android:icon="@drawable/icon5"/>
+        android:icon="@drawable/ic_home"/>
 
     <item
         android:id="@+id/hi_dok"
         android:title="Hi Dok!"
-        android:icon="@drawable/icon6"/>
+        android:icon="@drawable/ic_hidok"/>
 
     <item
         android:id="@+id/profile"
         android:title="Profile"
-        android:icon="@drawable/icon7"/>
+        android:icon="@drawable/ic_profile"/>
 </menu>

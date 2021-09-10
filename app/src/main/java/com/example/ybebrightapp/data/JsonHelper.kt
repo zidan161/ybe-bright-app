@@ -1,10 +1,13 @@
 package com.example.ybebrightapp.data
 
 import android.content.Context
-import com.example.ybebrightapp.Agent
-import com.example.ybebrightapp.Product
+import com.example.ybebrightapp.model.Agent
+import com.example.ybebrightapp.model.Product
 import com.example.ybebrightapp.R
+import com.example.ybebrightapp.model.Poin
+import com.example.ybebrightapp.model.Price
 import com.google.gson.Gson
+import kotlinx.coroutines.*
 import org.json.JSONException
 import org.json.JSONObject
 import java.io.IOException
@@ -27,14 +30,20 @@ class JsonHelper(private val ctx: Context) {
     fun loadProduct(): List<Product> {
         val data = mutableListOf<Product>()
 
-        val name = ctx.resources.getStringArray(R.array.product_name)
-        val img = ctx.resources.obtainTypedArray(R.array.product_image)
+        CoroutineScope(Dispatchers.Default).launch {
+            val name = ctx.resources.getStringArray(R.array.product_name)
+            val img = ctx.resources.obtainTypedArray(R.array.product_image)
 
-        for (i in ctx.resources.getStringArray(R.array.product_name).indices) {
-            val product = Product(name[0], img.getResourceId(i, 0))
-            data.add(product)
+            for (i in name.indices) {
+                val product = if (i.equals(0..1)) {
+                    Product(name[0], img.getResourceId(i, 0), true)
+                } else {
+                    Product(name[0], img.getResourceId(i, 0), false)
+                }
+                data.add(product)
+            }
+            img.recycle()
         }
-        img.recycle()
         return data
     }
 
@@ -46,7 +55,6 @@ class JsonHelper(private val ctx: Context) {
             for (i in 0 until listArray.length()){
 
                 val data = listArray.getJSONObject(i)
-
                 val gson = Gson()
 
                 val agent = gson.fromJson(data.toString(), Agent::class.java)
@@ -66,10 +74,10 @@ class JsonHelper(private val ctx: Context) {
             for (i in 0 until listArray.length()){
 
                 val data = listArray.getJSONObject(i)
-                if (data.getString("NIK").equals(nik)) {
-                    data.put("status", "Agen")
-                    data.put("poin", poin)
-                    val gson = Gson()
+                    if (data.getString("NIK").equals(nik)) {
+                        data.put("status", "agen tunggal")
+                        data.put("poin", poin)
+                        val gson = Gson()
 
                     trueAgent = gson.fromJson(data.toString(), Agent::class.java)
                 }
@@ -122,5 +130,63 @@ class JsonHelper(private val ctx: Context) {
             e.printStackTrace()
         }
         return trueAgent
+    }
+
+    fun loadPrice(fileName: String, arrayName: String): ArrayList<Price> {
+        val finalPrice = ArrayList<Price>()
+        val responseObject = JSONObject(parsingFileToString(fileName).toString())
+            try {
+                val listArray = responseObject.getJSONArray(arrayName)
+                for (i in 0 until listArray.length()) {
+
+                    val data = listArray.getJSONObject(i)
+
+                    val gson = Gson()
+
+                    finalPrice.add(gson.fromJson(data.toString(), Price::class.java))
+                }
+            } catch (e: JSONException) {
+                e.printStackTrace()
+            }
+        return finalPrice
+    }
+
+    fun loadPoin(poin: Int): ArrayList<Poin> {
+        val finalPrice = ArrayList<Poin>()
+        try {
+            val responseObject = JSONObject(parsingFileToString("poin.json").toString())
+            val listArray = responseObject.getJSONArray("data")
+
+            val size: Int = when (poin) {
+                in 50..99 -> { 1 }
+                in 100..149 -> { 2 }
+                in 150..199 -> { 3 }
+                in 200..299 -> { 4 }
+                in 300..449 -> { 5 }
+                in 450..499 -> { 6 }
+                in 500..749 -> { 7 }
+                in 750..999 -> { 8 }
+                in 1000..1499 -> { 9 }
+                in 1500..1999 -> { 10 }
+                in 2000..2999 -> { 11 }
+                in 3000..3499 -> { 12 }
+                in 3500..17999 -> { 13 }
+                in 18000..29999 -> { 14 }
+                in 30000..69999 -> { 15 }
+                in 70000..999999 -> { 16 }
+                else -> { listArray.length() }
+            }
+
+            for (i in 0 until size){
+
+                val data = listArray.getJSONObject(i)
+                val gson = Gson()
+
+                finalPrice.add(gson.fromJson(data.toString(), Poin::class.java))
+            }
+        } catch (e: JSONException){
+            e.printStackTrace()
+        }
+        return finalPrice
     }
 }

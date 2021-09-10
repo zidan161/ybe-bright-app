@@ -100,20 +100,20 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <TextView
-                android:id="@+id/tv_skip"
+            <Button
+                android:id="@+id/btn_skip"
+                style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tl_phone"
-                android:clickable="true"
-                android:focusable="true"
+                android:layout_alignParentStart="true"
                 android:text="Skip >" />
 
             <Button
                 android:id="@+id/btn_login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tv_skip"
+                android:layout_below="@id/btn_skip"
                 android:layout_marginTop="10dp"
                 android:text="@string/login" />
 

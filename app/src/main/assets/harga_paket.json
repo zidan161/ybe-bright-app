@@ -1,0 +1,50 @@
+{
+  "customer": [
+    {
+      "Qty": "1-2",
+      "Jawa Bali": 250000,
+      "Luar Jawa Bali": 260000
+    }
+  ],
+  "reseller": [
+    {
+      "Qty": "3-8",
+      "Jawa Bali": 225000,
+      "Luar Jawa Bali": 235000
+    },
+    {
+      "Qty": "9-14",
+      "Jawa Bali": 220000,
+      "Luar Jawa Bali": 230000
+    },
+    {
+      "Qty": "15-24",
+      "Jawa Bali": 215000,
+      "Luar Jawa Bali": 225000
+    }
+  ],
+  "agen": [
+    {
+      "Qty": "25-49",
+      "Jawa Bali": 200000,
+      "Luar Jawa Bali": 210000
+    },
+    {
+      "Qty": "50-99",
+      "Jawa Bali": 195000,
+      "Luar Jawa Bali": 205000
+    },
+    {
+      "Qty": "100-499",
+      "Jawa Bali": 190000,
+      "Luar Jawa Bali": 200000
+    }
+  ],
+  "agen tunggal": [
+    {
+      "Qty": "500",
+      "Jawa Bali": 175000,
+      "Luar Jawa Bali": 185000
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 package com.example.ybebrightapp.agent
 
 import androidx.lifecycle.ViewModel
-import com.example.ybebrightapp.Agent
+import com.example.ybebrightapp.model.Agent
 import com.example.ybebrightapp.data.MainRepository
 
 class AgentViewModel(private val repository: MainRepository): ViewModel() {

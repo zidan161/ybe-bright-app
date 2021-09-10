@@ -6,9 +6,11 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ybebrightapp.RegisterActivity
-import com.example.ybebrightapp.data.JsonHelper
 import com.example.ybebrightapp.databinding.ActivityAgentBinding
 import com.example.ybebrightapp.viewmodel.ViewModelFactory
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class AgentActivity : AppCompatActivity() { 
 
@@ -24,21 +26,29 @@ class AgentActivity : AppCompatActivity() {
 
         val allAgents = viewModel.getAllList()
 
-        for (i in allAgents) {
-            if (i.nik != null) {
-                val agent = viewModel.getListAgent(i.nik, i.poin)
-                val agenTunggal = viewModel.getListAgentTunggal(i.nik, i.poin)
-                val reseller = viewModel.getListReseller(i.nik, i.poin)
+        CoroutineScope(Dispatchers.Default).launch {
+            for (i in allAgents) {
+                if (i.nik != null) {
+                    val agent = viewModel.getListAgent(i.nik, i.poin)
+                    val agenTunggal = viewModel.getListAgentTunggal(i.nik, i.poin)
+                    val reseller = viewModel.getListReseller(i.nik, i.poin)
 
-                when {
-                    agent != null -> {
-                        i.phone = agent.phone
-                    }
-                    agenTunggal != null -> {
-                        i.phone = agenTunggal.phone
-                    }
-                    reseller != null -> {
-                        i.phone = reseller.phone
+                    when {
+                        agent != null -> {
+                            i.phone = agent.phone
+                            i.address = agent.address
+                            i.city = agent.city
+                        }
+                        agenTunggal != null -> {
+                            i.phone = agenTunggal.phone
+                            i.address = agenTunggal.address
+                            i.city = agenTunggal.city
+                        }
+                        reseller != null -> {
+                            i.phone = reseller.phone
+                            i.address = reseller.address
+                            i.city = reseller.city
+                        }
                     }
                 }
             }

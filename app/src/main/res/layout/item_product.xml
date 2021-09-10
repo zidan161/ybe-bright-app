@@ -23,12 +23,31 @@
             tools:src="@tools:sample/avatars" />
 
         <TextView
+            android:id="@+id/tv_paket"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="6dp"
+            android:background="#F44336"
+            android:textColor="@color/white"
+            android:text="PAKET"
+            android:visibility="gone"
+            android:gravity="center"/>
+
+        <TextView
             android:id="@+id/tv_item_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:textSize="16sp"
+            tools:text="Serum Brightening"
+            android:gravity="center"
             android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_harga"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Harga"/>
 
     </LinearLayout>
 

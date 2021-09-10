@@ -1,0 +1,134 @@
+{
+  "Day Cream": [
+    {
+      "Qty": "1-4",
+      "Jawa Bali": 55000,
+      "Luar Jawa Bali": 60000
+    },
+    {
+      "Qty": "5-24",
+      "Jawa Bali": 45000,
+      "Luar Jawa Bali": 50000
+    },
+    {
+      "Qty": "25-99",
+      "Jawa Bali": 40000,
+      "Luar Jawa Bali": 45000
+    },
+    {
+      "Qty": "100",
+      "Jawa Bali": 35000,
+      "Luar Jawa Bali": 40000
+    }
+  ],
+  "Night Cream": [
+    {
+      "Qty": "1-4",
+      "Jawa Bali": 65000,
+      "Luar Jawa Bali": 70000
+    },
+    {
+      "Qty": "5-24",
+      "Jawa Bali": 55000,
+      "Luar Jawa Bali": 60000
+    },
+    {
+      "Qty": "25-99",
+      "Jawa Bali": 50000,
+      "Luar Jawa Bali": 55000
+    },
+    {
+      "Qty": "100",
+      "Jawa Bali": 45000,
+      "Luar Jawa Bali": 50000
+    }
+  ],
+  "Facial Wash": [
+    {
+      "Qty": "1-4",
+      "Jawa Bali": 55000,
+      "Luar Jawa Bali": 60000
+    },
+    {
+      "Qty": "5-24",
+      "Jawa Bali": 45000,
+      "Luar Jawa Bali": 50000
+    },
+    {
+      "Qty": "25-99",
+      "Jawa Bali": 40000,
+      "Luar Jawa Bali": 45000
+    },
+    {
+      "Qty": "100",
+      "Jawa Bali": 35000,
+      "Luar Jawa Bali": 40000
+    }
+  ],
+  "Toner": [
+    {
+      "Qty": "1-4",
+      "Jawa Bali": 40000,
+      "Luar Jawa Bali": 40000
+    },
+    {
+      "Qty": "5-24",
+      "Jawa Bali": 30000,
+      "Luar Jawa Bali": 30000
+    },
+    {
+      "Qty": "25-99",
+      "Jawa Bali": 25000,
+      "Luar Jawa Bali": 25000
+    },
+    {
+      "Qty": "100",
+      "Jawa Bali": 20000,
+      "Luar Jawa Bali": 20000
+    }
+  ],
+  "Serum Brightening": [
+    {
+      "Qty": "1-4",
+      "Jawa Bali": 55000,
+      "Luar Jawa Bali": 60000
+    },
+    {
+      "Qty": "5-24",
+      "Jawa Bali": 45000,
+      "Luar Jawa Bali": 50000
+    },
+    {
+      "Qty": "25-99",
+      "Jawa Bali": 40000,
+      "Luar Jawa Bali": 45000
+    },
+    {
+      "Qty": "100",
+      "Jawa Bali": 35000,
+      "Luar Jawa Bali": 40000
+    }
+  ],
+  "Serum Acne": [
+    {
+      "Qty": "1-4",
+      "Jawa Bali": 55000,
+      "Luar Jawa Bali": 60000
+    },
+    {
+      "Qty": "5-24",
+      "Jawa Bali": 45000,
+      "Luar Jawa Bali": 50000
+    },
+    {
+      "Qty": "25-99",
+      "Jawa Bali": 40000,
+      "Luar Jawa Bali": 45000
+    },
+    {
+      "Qty": "100",
+      "Jawa Bali": 35000,
+      "Luar Jawa Bali": 40000
+    }
+  ]
+}

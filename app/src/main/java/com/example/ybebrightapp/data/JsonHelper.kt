@@ -4,6 +4,7 @@ import android.content.Context
 import com.example.ybebrightapp.model.Agent
 import com.example.ybebrightapp.model.Product
 import com.example.ybebrightapp.R
+import com.example.ybebrightapp.ingredients.Ingredient
 import com.example.ybebrightapp.model.Poin
 import com.example.ybebrightapp.model.Price
 import com.google.gson.Gson
@@ -188,5 +189,24 @@ class JsonHelper(private val ctx: Context) {
             e.printStackTrace()
         }
         return finalPrice
+    }
+
+    fun loadIngredient(): ArrayList<Ingredient> {
+        val list = ArrayList<Ingredient>()
+        try {
+            val responseObject = JSONObject(parsingFileToString("ingredients.json").toString())
+            val listArray = responseObject.getJSONArray("data")
+            for (i in 0 until listArray.length()){
+
+                val data = listArray.getJSONObject(i)
+                val gson = Gson()
+
+                val ing = gson.fromJson(data.toString(), Ingredient::class.java)
+                list.add(ing)
+            }
+        } catch (e: JSONException) {
+            e.printStackTrace()
+        }
+        return list
     }
 }

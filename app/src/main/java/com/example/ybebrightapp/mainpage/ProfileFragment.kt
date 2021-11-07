@@ -1,6 +1,6 @@
 package com.example.ybebrightapp.mainpage
 
-import android.app.Activity.RESULT_OK
+import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -15,10 +15,12 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.ybebrightapp.ProfileViewModel
+import com.example.ybebrightapp.R
 import com.example.ybebrightapp.model.Agent
 import com.example.ybebrightapp.databinding.FragmentProfileBinding
 import com.example.ybebrightapp.databinding.PoinLayoutBinding
 import com.example.ybebrightapp.hidok.FriendlyMessageAdapter.Companion.TAG
+import com.example.ybebrightapp.hidok.MyOpenDocumentContract
 import com.example.ybebrightapp.login.LoginActivity
 import com.example.ybebrightapp.main.MainActivity
 import com.example.ybebrightapp.model.Poin
@@ -45,8 +47,9 @@ class ProfileFragment : Fragment() {
     private lateinit var database: FirebaseDatabase
 
     private val getPhoto = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        if (it.resultCode == RESULT_OK) {
-            setPhoto(it.data?.data!!)
+        if (it.resultCode == Activity.RESULT_OK) {
+            val uri = it.data?.data!!
+            setPhoto(uri)
         }
     }
 
@@ -65,6 +68,7 @@ class ProfileFragment : Fragment() {
             val viewModel = ViewModelProvider(this, factory)[ProfileViewModel::class.java]
 
             with(fragmentProfileBinding) {
+                tvStatus.text = data?.status?.uppercase()
                 if (data?.status != "customer") {
                     database =
                         Firebase.database("https://ybebright-app-default-rtdb.asia-southeast1.firebasedatabase.app/")
@@ -73,6 +77,7 @@ class ProfileFragment : Fragment() {
                                 override fun onDataChange(snapshot: DataSnapshot) {
                                     if (snapshot.value != null) {
                                         Glide.with(this@ProfileFragment).load(snapshot.value)
+                                            .placeholder(R.drawable.ic_account_circle)
                                             .into(imgProfile)
                                     }
                                 }
@@ -111,6 +116,7 @@ class ProfileFragment : Fragment() {
                     getPhoto.launch(
                         ImagePicker.with(requireActivity())
                             .galleryOnly()
+                            .cropOval()
                             .createIntent()
                     )
                 }

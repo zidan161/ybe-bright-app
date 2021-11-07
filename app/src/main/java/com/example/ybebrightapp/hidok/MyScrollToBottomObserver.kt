@@ -5,7 +5,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
 import com.example.ybebrightapp.hidok.FriendlyMessageAdapter
 
-class MyScrollToBottomObserver(
+class MyScrollToBottomObserver (
     private val recycler: RecyclerView,
     private val adapter: FriendlyMessageAdapter,
     private val manager: LinearLayoutManager) : AdapterDataObserver() {

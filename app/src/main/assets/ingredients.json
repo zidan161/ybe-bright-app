@@ -1,0 +1,28 @@
+{
+  "data": [
+    {
+      "name": "Facial Wash",
+      "ingredients": "Komposisi :  Aqua, Sodium Laureth Sulfate, Cocamide Dea, Cocamidopropyl Betaine, Propylene Gycol, Aloe Barbadensis Leaf Extract, Phenoxyethol, Gycol Distearate, Ethoxylated Fatty Alcohol, Sodium Chloride, Cocamide Mea, Glycerin, Fragrance, Dmdm Hydantoin, Lactic Acid, Disodium Edta, Ci 42090, Ci 19140."
+    },
+    {
+      "name": "Toner",
+      "ingredients": "Komposisi :  Aqua,  Ethanol, Propylene Gliycol, Aloe Barbadensis Leaf Extract,  Phoenoxyethanol, Hamamelis Virginiana, Distillate, Glycerin, Peg-40 Hydrogenated Castor Oil, NigellaSativa Seed Oil, Dmdm Hydantoin, Allantoin, Fragrance, Disodium Edta."
+    },
+    {
+      "name": "Night Cream",
+      "ingredients": "Komposisi :   Aqua, Niacinamide, Cera Alba, Copernicia Cerifera Wax, Phospholipids, Phenoxythanol, Potassium Sorbate, Sodium Citrate, Sodium Poly-acryloyldimethyl Tauret, Hydrogenated Poly decene, Trideceth-10, Cetyl alcohol, Glyceryl Stearate, Peg-75 Stearate, Ceteth-20, Glycol, 1-2 Hexanediol, Dipentaerythrityl Hexahydroxystreate/Hexastearate/Hexarosinate, Peg-12 Dimethicone, Propanediol, Sodium Pca, Butyrospermum Parii, Diglycerin, DMdm Hydantoin, Melaleuca Alternifolia Oil, Fragrance, Allantoin, Methylparaben, Propylparaben, Bht, Disodium Edta, Panthenol, Glutathione, Soluble Collagen, Citric Acid, Sodium Citrate, Sodium Benzoate "
+    },
+    {
+      "name": "Day Cream",
+      "ingredients": "Komposisi :  Aqua, Glyceryn, Cetyl Alcohol, Glyceryl Stearate, Peg-75 Stearate, Ceteth-20, Stearate-20, Ethylhexyl Methoxycinnamate, Butyl Metthoxydybenzoylmethane, Benzophenone-3, Butylene Glycol. Phospholipids, Phenoxyethanol, Titanium Dioxide, Propylene Glycol, Cera Alba, Talc, Sodium Polycryloyldimethyl Taurate, Hydrogenated Polydecene, Trideceth-1D, Mica, Tin Oxide, Methylparaben, Allantoin, Fragrance, Propylparaben, bht, Disodium Edta."
+    },
+    {
+      "name": "Serum Bright",
+      "ingredients": "Komposisi :   Aqua, Butylene Glycol, Tranexamoyl Dipeptide-23, Caprylyl Glycol, 1,2-Hexanediol, Niacina mide, Phragmites Kharka Extract, Poria Cocos tract, Citric Acid, Sodium Citrate, Sodium Benzoate, Propane diol, Dmdm Hydantoin, Diglycerin, Hydroxyethylcellu lose, Glutathione, Allantoin, Xanthan Gum, Fragrance. Disodium Edta."
+    },
+    {
+      "name": "Serum Acne",
+      "ingredients": "Komposisi :  Aqua, Niacinamide, Butylene Glycol, Baros ma Betulina Leaf Extract, Citric Acid, Hydroxypropyl Methylcellulose, Cellulose Gum, Cellulose, Garcinia Mangostana Fruit Extract, Chlorphenesin, Propanediol, Hydroxy-ethylcellulose, Dmdm Hydantoin, Melaleuca Alternifolia Oil, Zinc Pca, Diglycerin, Polysorbate 20, Allantoin, Disodium Edta."
+    }
+  ]
+}

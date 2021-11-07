@@ -1,6 +1,7 @@
 package com.example.ybebrightapp.data
 
 import androidx.lifecycle.LiveData
+import com.example.ybebrightapp.ingredients.Ingredient
 import com.example.ybebrightapp.model.*
 import okhttp3.RequestBody
 
@@ -15,4 +16,5 @@ interface DataSource {
     fun getCity(id: String): LiveData<List<City>>
     fun getCost(request: RequestBody): LiveData<List<Costs>>
     fun getPoin(poin: Int): List<Poin>
+    fun getIngredients(): List<Ingredient>
 }

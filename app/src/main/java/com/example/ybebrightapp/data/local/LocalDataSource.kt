@@ -3,6 +3,7 @@ package com.example.ybebrightapp.data.local
 import com.example.ybebrightapp.model.Agent
 import com.example.ybebrightapp.model.Product
 import com.example.ybebrightapp.data.JsonHelper
+import com.example.ybebrightapp.ingredients.Ingredient
 import com.example.ybebrightapp.model.Poin
 
 class LocalDataSource (private val helper: JsonHelper) {
@@ -27,4 +28,6 @@ class LocalDataSource (private val helper: JsonHelper) {
     fun getListReseller(nik: String?, poin: Int): Agent? = helper.loadReseller(nik, poin)
 
     fun getPoin(poin: Int): List<Poin> = helper.loadPoin(poin)
+
+    fun getIngredients(): List<Ingredient> = helper.loadIngredient()
 }

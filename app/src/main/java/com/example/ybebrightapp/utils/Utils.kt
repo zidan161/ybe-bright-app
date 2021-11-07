@@ -20,15 +20,19 @@ fun createImageFile(context: Context): File {
     // Create an image file name
     val timeStamp: String = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
     val storageDir: File? = context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)
-    return File.createTempFile(
-        timeStamp,
-        ".jpg",
-        storageDir
+    return File(
+        storageDir,
+        "$timeStamp.jpg"
     )
 }
 
+@SuppressLint("SimpleDateFormat")
+fun getDate(): String {
+    return SimpleDateFormat("HHmmss dd/MM/yyyy").format(Date())
+}
+
 fun Int.setDecimal(): String {
-    val format = DecimalFormat("##,###")
+    val format = DecimalFormat("##.###")
     return format.format(this)
 }
 

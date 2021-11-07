@@ -10,7 +10,6 @@ import com.example.ybebrightapp.R
 import com.example.ybebrightapp.databinding.ActivityMainBinding
 import com.example.ybebrightapp.databinding.DialogImageBinding
 import com.example.ybebrightapp.hidok.ConsulActivity
-import com.example.ybebrightapp.hidok.HiDokActivity
 import com.example.ybebrightapp.mainpage.HomeFragment
 import com.example.ybebrightapp.mainpage.ProfileFragment
 import com.example.ybebrightapp.utils.showAlert
@@ -29,7 +28,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val data: Agent? = intent.getParcelableExtra(DATA_KEY)
-        val preferences = getSharedPreferences("myShared", MODE_PRIVATE)
 
         createAlert(R.drawable.pop_up)
 
@@ -64,17 +62,10 @@ class MainActivity : AppCompatActivity() {
                         .commit()
                     true
                 } else -> {
-                if (preferences.getBoolean("isFirst", true)) {
                     val intent = Intent(this, ConsulActivity::class.java)
                     intent.putExtra("data", data)
                     startActivity(intent)
-                    preferences.edit().putBoolean("isFirst", false).apply()
-                } else {
-                    val intent = Intent(this, HiDokActivity::class.java)
-                    intent.putExtra("data", data)
-                    startActivity(intent)
-                }
-                true
+                    true
                 }
             }
         }
@@ -83,7 +74,11 @@ class MainActivity : AppCompatActivity() {
     private fun createAlert(img: Int) {
         val binding = DialogImageBinding.inflate(layoutInflater)
         Glide.with(this).load(img).into(binding.imgView)
-        showAlert(this, binding.root, true).show()
+        val alert = showAlert(this, binding.root, true)
+        alert.show()
+        binding.btnClose.setOnClickListener {
+            alert.cancel()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

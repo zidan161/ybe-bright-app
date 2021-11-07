@@ -37,14 +37,22 @@ atau klik tombol dibawah ini :</string>
     </string-array>
 
     <array name="product_image">
-        <item>@drawable/brightening_glow</item>
-        <item>@drawable/acne_glow</item>
-        <item>@drawable/facial_wash</item>
-        <item>@drawable/day_cream</item>
-        <item>@drawable/night_cream</item>
-        <item>@drawable/serum_brightening</item>
-        <item>@drawable/serum_acne</item>
-        <item>@drawable/toner</item>
+        <item>@drawable/foto_paketbg</item>
+        <item>@drawable/foto_paketag</item>
+        <item>@drawable/foto_facewash</item>
+        <item>@drawable/foto_daycream</item>
+        <item>@drawable/foto_nightcream</item>
+        <item>@drawable/foto_serumbrghtn</item>
+        <item>@drawable/foto_serumacne</item>
+        <item>@drawable/foto_toner</item>
+    </array>
+
+    <array name="slide">
+        <item>@drawable/slide_dkter</item>
+        <item>@drawable/slide_free</item>
+        <item>@drawable/slide_hadir</item>
+        <item>@drawable/slide_terlaris</item>
+        <item>@drawable/slide_you</item>
     </array>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

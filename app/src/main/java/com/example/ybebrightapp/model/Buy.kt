@@ -1,13 +1,17 @@
 package com.example.ybebrightapp.model
 
 import android.os.Parcelable
+import com.google.firebase.database.PropertyName
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Buy (
-    var name: String,
-    var img: Int,
+    @PropertyName("nama_barang")
+    var name: String?,
+    var img: Int?,
+    @PropertyName("qty")
     var count: Int,
+    @PropertyName("harga")
     var price: Int,
-    var total: Int
-): Parcelable
+    @PropertyName("total")
+    var total: Int): Parcelable

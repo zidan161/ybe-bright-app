@@ -4,11 +4,25 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center">
 
-    <ImageView
-        android:id="@+id/img_view"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/harga_paket"
-        android:adjustViewBounds="true"/>
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/img_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:adjustViewBounds="true"/>
+
+        <ImageView
+            android:id="@+id/btn_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_close" />
+
+    </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

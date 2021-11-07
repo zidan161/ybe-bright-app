@@ -24,6 +24,7 @@ class RegisterActivity : AppCompatActivity() {
                 val name = edtName.text.toString()
                 val nik = edtNik.text.toString().trim()
                 val rek = edtRek.text.toString().trim()
+                val bank = edtBank.text.toString()
                 val phone = edtPhone.text.toString().trim()
                 val email = edtEmail.text.toString().trim()
                 val address = edtAddress.text.toString()
@@ -44,6 +45,10 @@ class RegisterActivity : AppCompatActivity() {
                     edtRek.error = "Field ini harus diisi!"
                     return@setOnClickListener
                 }
+                if (rek.isEmpty()) {
+                    edtBank.error = "Field ini harus diisi!"
+                    return@setOnClickListener
+                }
                 if (phone.isEmpty()) {
                     edtPhone.error = "Field ini harus diisi!"
                     return@setOnClickListener
@@ -62,6 +67,7 @@ class RegisterActivity : AppCompatActivity() {
                     "Nama" to name,
                     "NIK" to nik,
                     "Rek" to rek,
+                    "Bank" to bank,
                     "Phone" to phone,
                     "Email" to email,
                     "Alamat" to address)

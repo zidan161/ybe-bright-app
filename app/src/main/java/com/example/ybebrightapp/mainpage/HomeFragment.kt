@@ -10,12 +10,16 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.ybebrightapp.*
 import com.example.ybebrightapp.agent.AgentActivity
 import com.example.ybebrightapp.databinding.FragmentHomeBinding
+import com.example.ybebrightapp.ingredients.IngredientActivity
 import com.example.ybebrightapp.main.MainActivity
 import com.example.ybebrightapp.model.Agent
 import com.example.ybebrightapp.model.Product
 import com.example.ybebrightapp.product.*
 import com.example.ybebrightapp.utils.showLoading
 import com.synnapps.carouselview.ImageListener
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
 
@@ -24,15 +28,15 @@ class HomeFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         fragmentHomeBinding = FragmentHomeBinding.inflate(layoutInflater, container, false)
 
-        val images = listOf(R.drawable.slide, R.drawable.slide_1)
+        val slide = listOf(R.drawable.slide_dkter, R.drawable.slide_you, R.drawable.slide_free,
+            R.drawable.slide_hadir, R.drawable.slide_terlaris)
 
         val imageListener = ImageListener { position, imageView ->
-            imageView.setImageResource(images[position])
+            imageView.setImageResource(slide[position])
         }
 
-        fragmentHomeBinding.mainCv.pageCount = 2
+        fragmentHomeBinding.mainCv.pageCount = slide.size
         fragmentHomeBinding.mainCv.setImageListener(imageListener)
-
         return fragmentHomeBinding.root
     }
 
@@ -44,11 +48,13 @@ class HomeFragment : Fragment() {
 
             with(fragmentHomeBinding){
                 btnAgent.setOnClickListener {
-                    val loading = showLoading()
-                    loading.show()
-                    val intent = Intent(context, AgentActivity::class.java)
-                    startActivity(intent)
-                    loading.hide()
+                    CoroutineScope(Dispatchers.Main).launch {
+                        val loading = showLoading()
+                        loading.show()
+                        val intent = Intent(context, AgentActivity::class.java)
+                        startActivity(intent)
+                        loading.hide()
+                    }
                 }
                 btnPrice.setOnClickListener {
                     val intent = Intent(context, ProductActivity::class.java)
@@ -68,17 +74,21 @@ class HomeFragment : Fragment() {
 
                 val data = mutableListOf<Product>()
 
-                val name = resources.getStringArray(R.array.product_name)
-                val image = resources.obtainTypedArray(R.array.product_image)
+                CoroutineScope(Dispatchers.Default).launch {
+                    val name = resources.getStringArray(R.array.product_name)
+                    val image = resources.obtainTypedArray(R.array.product_image)
 
-                for (i in name.indices) {
-                    val product = Product(name[i], image.getResourceId(i, 0), true)
-                    data.add(product)
+                    for (i in 0 until 2) {
+                        val product = Product(name[i], image.getResourceId(i, 0), true)
+                        data.add(product)
+                    }
+                    data.add(Product("Paket Premium Glow", R.drawable.foto_pakecoming, true))
+                    data.add(Product("Fresh Cleanshing", R.drawable.pop_up, true))
+                    image.recycle()
                 }
-                image.recycle()
 
                 val status = member?.status ?: "customer"
-                val adapter = ProductAdapter(requireContext(), data, status) {
+                val adapter = ProductAdapter(data, status) { _, _ ->
                     val intent = Intent(context, ProductActivity::class.java)
                     intent.putExtra("data", member)
                     startActivity(intent)

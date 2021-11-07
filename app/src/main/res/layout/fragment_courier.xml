@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="20dp"
+    android:orientation="vertical"
     tools:context=".CourierFragment">
 
     <TextView
@@ -14,80 +15,87 @@
         android:text="Pilih Jasa Pengiriman"
         android:textColor="@color/tosca"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/img_jne"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_main" />
+        android:layout_marginBottom="30dp" />
 
     <TextView
         android:id="@+id/tv_jne"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackground"
         android:text="JNE"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/img_jne"
-        app:layout_constraintTop_toTopOf="@+id/img_jne" />
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_jne"
+    <net.cachapa.expandablelayout.ExpandableLayout
+        android:id="@+id/expandable_jne"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/tv_jne"
-        android:layout_marginTop="10dp" />
+        app:el_duration="1000"
+        app:el_parallax="0.5"
+        app:el_expanded="true"
+        android:paddingVertical="10dp">
 
-    <ImageView
-        android:id="@+id/img_pos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rv_jne" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_jne"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </net.cachapa.expandablelayout.ExpandableLayout>
 
     <TextView
         android:id="@+id/tv_pos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackground"
         android:text="POS"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/img_pos"
-        app:layout_constraintTop_toTopOf="@+id/img_pos" />
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_pos"
+    <net.cachapa.expandablelayout.ExpandableLayout
+        android:id="@+id/expandable_pos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/tv_pos"
-        android:layout_marginTop="10dp" />
+        app:el_duration="1000"
+        app:el_parallax="0.5"
+        app:el_expanded="true"
+        android:paddingVertical="10dp">
 
-    <ImageView
-        android:id="@+id/img_tiki"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rv_pos" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_pos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </net.cachapa.expandablelayout.ExpandableLayout>
 
     <TextView
         android:id="@+id/tv_tiki"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="JNE"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/img_tiki"
-        app:layout_constraintTop_toTopOf="@+id/img_tiki" />
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackground"
+        android:text="TIKI"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_tiki"
+    <net.cachapa.expandablelayout.ExpandableLayout
+        android:id="@+id/expandable_tiki"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/tv_tiki"
-        android:layout_marginTop="10dp" />
+        app:el_duration="1000"
+        app:el_parallax="1"
+        app:el_expanded="true"
+        android:paddingVertical="10dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_tiki"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </net.cachapa.expandablelayout.ExpandableLayout>
+
+</LinearLayout>

@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.ybebrightapp.data.local.LocalDataSource
 import com.example.ybebrightapp.data.remote.RemoteDataSource
+import com.example.ybebrightapp.ingredients.Ingredient
 import com.example.ybebrightapp.model.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -39,6 +40,8 @@ class MainRepository (
     override fun getListReseller(nik: String?, poin: Int): Agent? = local.getListReseller(nik, poin)
 
     override fun getPoin(poin: Int): List<Poin> = local.getPoin(poin)
+
+    override fun getIngredients(): List<Ingredient> = local.getIngredients()
 
     override fun getProvince(): LiveData<List<Province>> {
         val client = remote.getProvince()

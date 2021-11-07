@@ -1,104 +1,95 @@
 package com.example.ybebrightapp.hidok
 
-import android.Manifest
 import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.net.toUri
+import android.view.View
+import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
+import com.example.ybebrightapp.R
 import com.example.ybebrightapp.databinding.ActivityConsulBinding
 import com.example.ybebrightapp.model.Agent
 import com.example.ybebrightapp.model.Consul
-import com.github.drjacky.imagepicker.ImagePicker
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import com.example.ybebrightapp.utils.hideKeyboard
+import com.example.ybebrightapp.viewmodel.ViewModelFactory
 
 class ConsulActivity : AppCompatActivity() {
 
     companion object {
-        private const val IMG_FRONT = "front"
-        private const val IMG_RIGHT = "right"
-        private const val IMG_LEFT = "left"
+        const val IMG_FRONT = "front"
+        const val IMG_RIGHT = "right"
+        const val IMG_LEFT = "left"
         private const val ERROR_MSG = "Field ini harus diisi!"
     }
 
     private lateinit var binding: ActivityConsulBinding
     private lateinit var preferences: SharedPreferences
-
-    private val activityResultLauncher =
-        registerForActivityResult(
-            ActivityResultContracts.RequestMultiplePermissions())
-        { }
+    private var member: Agent? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityConsulBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val member = intent.getParcelableExtra<Agent>("data")
+        member = intent.getParcelableExtra("data")
 
         preferences = getSharedPreferences("myShared", MODE_PRIVATE)
 
-        activityResultLauncher.launch(
-            arrayOf(Manifest.permission.CAMERA,
-                Manifest.permission.READ_EXTERNAL_STORAGE)
-        )
+        if (member == null) {
+            binding.mainView.visibility = View.GONE
+            binding.sorryView.visibility = View.VISIBLE
+        }
 
-        val capture = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-            if (it.resultCode == RESULT_OK) {
-                when (preferences.getString("key", "")) {
-                    IMG_FRONT -> {
-                        preferences.edit().putString(IMG_FRONT, it.data?.data.toString()).apply()
-                    }
-                    IMG_RIGHT -> {
-                        preferences.edit().putString(IMG_RIGHT, it.data?.data.toString()).apply()
-                    }
-                    IMG_LEFT -> {
-                        preferences.edit().putString(IMG_LEFT, it.data?.data.toString()).apply()
-                    }
-                }
+        val factory = ViewModelFactory.getInstance(this)
+        val viewModel = ViewModelProvider(this, factory)[HiDokViewModel::class.java]
+
+        viewModel.uriFront.observe(this) {
+            if (it != null) {
+                Glide.with(this)
+                    .load(it)
+                    .centerCrop()
+                    .into(binding.imgFront)
+            }
+        }
+
+        viewModel.uriRight.observe(this) {
+            if (it != null) {
+                Glide.with(this)
+                    .load(it)
+                    .centerCrop()
+                    .into(binding.imgRight)
+            }
+        }
+
+        viewModel.uriLeft.observe(this) {
+            if (it != null) {
+                Glide.with(this)
+                    .load(it)
+                    .centerCrop()
+                    .into(binding.imgLeft)
             }
         }
 
         binding.imgFront.setOnClickListener {
-            preferences.edit().putString("key", IMG_FRONT).apply()
-            CoroutineScope(Dispatchers.Main).launch {
-                capture.launch(
-                    ImagePicker.with(this@ConsulActivity)
-                        .cameraOnly()
-                        .cropSquare()
-                        .createIntent()
-                )
-            }
+            openCamera(IMG_FRONT)
         }
 
         binding.imgRight.setOnClickListener {
-            preferences.edit().putString("key", IMG_RIGHT).apply()
-            CoroutineScope(Dispatchers.Main).launch {
-                capture.launch(
-                    ImagePicker.with(this@ConsulActivity)
-                    .cameraOnly()
-                    .cropSquare()
-                    .createIntent()
-                )
-            }
+            openCamera(IMG_RIGHT)
         }
 
         binding.imgLeft.setOnClickListener {
-            preferences.edit().putString("key", IMG_LEFT).apply()
-            CoroutineScope(Dispatchers.Main).launch {
-                capture.launch(
-                    ImagePicker.with(this@ConsulActivity)
-                        .cameraOnly()
-                        .cropSquare()
-                        .createIntent()
-                )
-            }
+            openCamera(IMG_LEFT)
+        }
+
+        binding.btnSkip.setOnClickListener {
+            val intent = Intent(this@ConsulActivity, HiDokActivity::class.java)
+            intent.putExtra("data", member)
+            startActivity(intent)
         }
 
         binding.btnSend.setOnClickListener {
+            hideKeyboard()
             with(binding) {
                 val name = edtName.editText?.text.toString()
                 val age = edtAge.editText?.text.toString()
@@ -110,6 +101,11 @@ class ConsulActivity : AppCompatActivity() {
                 val skinType = edtSkinType.editText?.text.toString()
                 val riwayatKb = edtRiwayatKb.editText?.text.toString()
                 val aktifitas = edtAktifitas.editText?.text.toString()
+                val alergi = when(rgAlergi.checkedRadioButtonId) {
+                    R.id.rb_yes -> "Ya"
+                    R.id.rb_no -> "Tidak"
+                    else -> ""
+                }
 
                 if (name.isEmpty()) {
                     edtName.editText?.error = ERROR_MSG
@@ -161,6 +157,10 @@ class ConsulActivity : AppCompatActivity() {
                     return@setOnClickListener
                 }
 
+                if (alergi.isEmpty()) {
+                    return@setOnClickListener
+                }
+
                 val text = "Nama: $name Umur: $age\n" +
                         "No. WA: $noWa\nNo. Wa Agen: $noWaAgen\nKeluhan: \n$keluhan\nBerapa lama: $since\n" +
                         "Pernah Berobat: $berobat\nTipe Kulit: $skinType\nRiwayat KB/suntik/implant:\n$riwayatKb\n" +
@@ -168,9 +168,9 @@ class ConsulActivity : AppCompatActivity() {
 
                 val data = Consul(
                     text,
-                    preferences.getString(IMG_FRONT, "")?.toUri(),
-                    preferences.getString(IMG_RIGHT, "")?.toUri(),
-                    preferences.getString(IMG_LEFT, "")?.toUri())
+                    viewModel.uriFront.value,
+                    viewModel.uriRight.value,
+                    viewModel.uriLeft.value)
 
                 val intent = Intent(this@ConsulActivity, HiDokActivity::class.java)
                 intent.putExtra("data", member)
@@ -180,27 +180,23 @@ class ConsulActivity : AppCompatActivity() {
         }
     }
 
-    override fun onResume() {
-        super.onResume()
-        CoroutineScope(Dispatchers.Main).launch {
-            if (preferences.getString(IMG_FRONT, null) != null) {
-                Glide.with(this@ConsulActivity)
-                    .load(preferences.getString(IMG_FRONT, ""))
-                    .centerCrop()
-                    .into(binding.imgFront)
-            }
-            if (preferences.getString(IMG_RIGHT, null) != null) {
-                Glide.with(this@ConsulActivity)
-                    .load(preferences.getString(IMG_RIGHT, ""))
-                    .centerCrop()
-                    .into(binding.imgRight)
-            }
-            if (preferences.getString(IMG_LEFT, null) != null) {
-                Glide.with(this@ConsulActivity)
-                    .load(preferences.getString(IMG_LEFT, ""))
-                    .centerCrop()
-                    .into(binding.imgLeft)
-            }
+    private fun openCamera(req: String) {
+        hideKeyboard()
+        val frag = CameraFragment()
+        val bundle = Bundle()
+        bundle.putString("req", req)
+        binding.mainView.visibility = View.GONE
+        frag.arguments = bundle
+            supportFragmentManager.beginTransaction()
+                .add(R.id.frame_cam, frag, CameraFragment::class.java.simpleName)
+                .addToBackStack(null)
+                .commit()
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        if (member != null) {
+            binding.mainView.visibility = View.VISIBLE
         }
     }
 }

@@ -1,0 +1,114 @@
+{
+  "project_info": {
+    "project_number": "569265063710",
+    "firebase_url": "https://ybebright-app-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "ybebright-app",
+    "storage_bucket": "ybebright-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:569265063710:android:f42d4fd2ccb30049cb2b0f",
+        "android_client_info": {
+          "package_name": "com.example.adminfarmasi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "569265063710-iqa02h34l885qul1b25ocifghl5hribd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.adminfarmasi",
+            "certificate_hash": "842161dacb3695ecd43033ece60d9c915949df58"
+          }
+        },
+        {
+          "client_id": "569265063710-kte47452s5i4qsdt1f5epu6cj2voaqdk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDh67JS34Ou_q6cSOd2JS6j1B0AsO_80S8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "569265063710-kte47452s5i4qsdt1f5epu6cj2voaqdk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:569265063710:android:dd6b56695bdddd02cb2b0f",
+        "android_client_info": {
+          "package_name": "com.example.adminybebright"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "569265063710-kte47452s5i4qsdt1f5epu6cj2voaqdk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDh67JS34Ou_q6cSOd2JS6j1B0AsO_80S8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "569265063710-kte47452s5i4qsdt1f5epu6cj2voaqdk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:569265063710:android:b44683aabcebedcacb2b0f",
+        "android_client_info": {
+          "package_name": "com.example.ybebrightapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "569265063710-833c0adlb7uvhgo2i3d3um8e6e09d8b7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ybebrightapp",
+            "certificate_hash": "842161dacb3695ecd43033ece60d9c915949df58"
+          }
+        },
+        {
+          "client_id": "569265063710-kte47452s5i4qsdt1f5epu6cj2voaqdk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDh67JS34Ou_q6cSOd2JS6j1B0AsO_80S8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "569265063710-kte47452s5i4qsdt1f5epu6cj2voaqdk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

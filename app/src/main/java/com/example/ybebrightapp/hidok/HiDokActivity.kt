@@ -4,7 +4,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.widget.ProgressBar
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ybebrightapp.model.Agent
@@ -12,7 +11,6 @@ import com.example.ybebrightapp.databinding.HiDokActivityBinding
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.example.ybebrightapp.hidok.model.FriendlyMessage
 import com.example.ybebrightapp.model.Consul
-import com.github.drjacky.imagepicker.ImagePicker
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ktx.database
@@ -21,7 +19,6 @@ import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.ktx.storage
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 class HiDokActivity : AppCompatActivity() {
@@ -33,10 +30,8 @@ class HiDokActivity : AppCompatActivity() {
     private lateinit var adapter: FriendlyMessageAdapter
     private var member: Agent? = null
 
-    private val capture = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-        if (it.resultCode == RESULT_OK) {
-            onImageSelected(it.data?.data!!)
-        }
+    private val capture = registerForActivityResult(MyOpenDocumentContract()) {
+        onImageSelected(it)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,27 +52,25 @@ class HiDokActivity : AppCompatActivity() {
                 null,
                 true
             )
-            db.getReference("chat").child("${member?.id}").push().setValue(friendlyMessage)
+            db.getReference("chat").child(member?.id.toString()).push().setValue(friendlyMessage)
             onImageSelected(consul.frontPhoto!!)
             onImageSelected(consul.rightPhoto!!)
             onImageSelected(consul.leftPhoto!!)
         }
 
         // Initialize Realtime Database
-        val messagesRef = db.getReference(MESSAGES_CHILD).child("${member?.id}")
+        val messagesRef = db.getReference(MESSAGES_CHILD).child(member?.id.toString())
 
         // The FirebaseRecyclerAdapter class and options come from the FirebaseUI library
-        CoroutineScope(Dispatchers.Main).launch {
-            val options = FirebaseRecyclerOptions.Builder<FriendlyMessage>()
-                .setQuery(messagesRef, FriendlyMessage::class.java)
-                .build()
-            adapter = FriendlyMessageAdapter(this@HiDokActivity, options)
-            binding.progressBar.visibility = ProgressBar.INVISIBLE
-            manager = LinearLayoutManager(this@HiDokActivity)
-            manager.stackFromEnd = true
-            binding.messageRecyclerView.layoutManager = manager
-            binding.messageRecyclerView.adapter = adapter
-        }
+        val options = FirebaseRecyclerOptions.Builder<FriendlyMessage>()
+            .setQuery(messagesRef, FriendlyMessage::class.java)
+            .build()
+        adapter = FriendlyMessageAdapter(this@HiDokActivity, options)
+        binding.progressBar.visibility = ProgressBar.INVISIBLE
+        manager = LinearLayoutManager(this@HiDokActivity)
+        manager.stackFromEnd = true
+        binding.messageRecyclerView.layoutManager = manager
+        binding.messageRecyclerView.adapter = adapter
 
         adapter.registerAdapterDataObserver(
             MyScrollToBottomObserver(binding.messageRecyclerView, adapter, manager)
@@ -94,18 +87,16 @@ class HiDokActivity : AppCompatActivity() {
                 null,
                 true
             )
-            db.getReference("chat").child("${member?.id}").push().setValue(friendlyMessage)
+            db.getReference("chat").child(member?.id.toString()).push().setValue(friendlyMessage)
+            db.getReference("last_chat").child(member?.id.toString())
+                .setValue(mapOf("lastChat" to lastChat, "name" to member?.name))
             binding.messageEditText.setText("")
         }
 
         // When the image button is clicked, launch the image picker
         binding.addMessageImageView.setOnClickListener {
             CoroutineScope(Dispatchers.Default).launch {
-                capture.launch(
-                    ImagePicker.with(this@HiDokActivity)
-                        .cameraOnly()
-                        .createIntent()
-                )
+                capture.launch(arrayOf("image/*"))
             }
         }
     }
@@ -165,6 +156,8 @@ class HiDokActivity : AppCompatActivity() {
                                 .child("${member?.id}")
                                 .child(key!!)
                                 .setValue(friendlyMessage)
+                            db.getReference("last_chat").child(member?.id.toString())
+                                .setValue(mapOf("lastChat" to "Photo", "name" to member?.name))
                         }
                 }
                 .addOnFailureListener(this@HiDokActivity) { e ->

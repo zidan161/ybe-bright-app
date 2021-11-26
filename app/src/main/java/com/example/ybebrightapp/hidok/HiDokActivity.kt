@@ -22,6 +22,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class HiDokActivity : AppCompatActivity() {
+
     private lateinit var binding: HiDokActivityBinding
     private lateinit var manager: LinearLayoutManager
 
@@ -42,24 +43,29 @@ class HiDokActivity : AppCompatActivity() {
         member = intent.getParcelableExtra("data")
         val consul = intent.getParcelableExtra<Consul>("consul")
 
+        if (member == null) {
+            val name = intent.getStringExtra("name")!!
+            member = Agent(name, name, name, name)
+        }
+
         db = Firebase.database("https://ybebright-app-default-rtdb.asia-southeast1.firebasedatabase.app/")
 
         if (consul != null) {
             val friendlyMessage = FriendlyMessage(
                 consul.text,
-                member?.name,
+                member?.nama,
                 null,
                 null,
                 true
             )
-            db.getReference("chat").child(member?.id.toString()).push().setValue(friendlyMessage)
+            db.getReference("chat").child(member?.idMember.toString()).push().setValue(friendlyMessage)
             onImageSelected(consul.frontPhoto!!)
             onImageSelected(consul.rightPhoto!!)
             onImageSelected(consul.leftPhoto!!)
         }
 
         // Initialize Realtime Database
-        val messagesRef = db.getReference(MESSAGES_CHILD).child(member?.id.toString())
+        val messagesRef = db.getReference(MESSAGES_CHILD).child(member?.idMember.toString())
 
         // The FirebaseRecyclerAdapter class and options come from the FirebaseUI library
         val options = FirebaseRecyclerOptions.Builder<FriendlyMessage>()
@@ -82,14 +88,14 @@ class HiDokActivity : AppCompatActivity() {
             val lastChat = binding.messageEditText.text.toString()
             val friendlyMessage = FriendlyMessage(
                 lastChat,
-                member?.name,
+                member?.nama,
                 null,
                 null,
                 true
             )
-            db.getReference("chat").child(member?.id.toString()).push().setValue(friendlyMessage)
-            db.getReference("last_chat").child(member?.id.toString())
-                .setValue(mapOf("lastChat" to lastChat, "name" to member?.name))
+            db.getReference("chat").child(member?.idMember.toString()).push().setValue(friendlyMessage)
+            db.getReference("last_chat").child(member?.idMember.toString())
+                .setValue(mapOf("lastChat" to lastChat, "name" to member?.nama))
             binding.messageEditText.setText("")
         }
 
@@ -113,10 +119,10 @@ class HiDokActivity : AppCompatActivity() {
 
     private fun onImageSelected(uri: Uri) {
         Log.d(TAG, "Uri: $uri")
-        val tempMessage = FriendlyMessage(null, member?.name, null, LOADING_IMAGE_URL, true)
+        val tempMessage = FriendlyMessage(null, member?.nama, null, LOADING_IMAGE_URL, true)
         CoroutineScope(Dispatchers.IO).launch {
             db.getReference("chat")
-                .child("${member?.id}")
+                .child("${member?.idMember}")
                 .push()
                 .setValue(
                     tempMessage,
@@ -151,13 +157,13 @@ class HiDokActivity : AppCompatActivity() {
                     taskSnapshot.metadata!!.reference!!.downloadUrl
                         .addOnSuccessListener { uri ->
                             val friendlyMessage =
-                                FriendlyMessage(null, member?.name, null, uri.toString(), true)
+                                FriendlyMessage(null, member?.nama, null, uri.toString(), true)
                             db.getReference("chat")
-                                .child("${member?.id}")
+                                .child("${member?.idMember}")
                                 .child(key!!)
                                 .setValue(friendlyMessage)
-                            db.getReference("last_chat").child(member?.id.toString())
-                                .setValue(mapOf("lastChat" to "Photo", "name" to member?.name))
+                            db.getReference("last_chat").child(member?.idMember.toString())
+                                .setValue(mapOf("lastChat" to "Photo", "name" to member?.nama))
                         }
                 }
                 .addOnFailureListener(this@HiDokActivity) { e ->

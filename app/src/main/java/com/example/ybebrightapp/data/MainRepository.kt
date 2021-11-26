@@ -6,8 +6,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.ybebrightapp.data.local.LocalDataSource
 import com.example.ybebrightapp.data.remote.RemoteDataSource
+import com.example.ybebrightapp.howto.HowTo
 import com.example.ybebrightapp.ingredients.Ingredient
 import com.example.ybebrightapp.model.*
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -27,21 +30,51 @@ class MainRepository (
 
     override fun getProduct(): List<Product> = local.getProducts()
 
-    override fun getNews() {
-        TODO("Not yet implemented")
+    override fun getAllMember(): MutableLiveData<MutableList<Agent>?> {
+        val mDatabase = Firebase.database("https://ybebright-app-default-rtdb.asia-southeast1.firebasedatabase.app/")
+
+        val allAgents = MutableLiveData<MutableList<Agent>?>()
+        allAgents.value = null
+        mDatabase.getReference("member").get().addOnSuccessListener {
+            val root = it.children
+            val list = mutableListOf<Agent>()
+            for (place in root) {
+                for (agent in place.children) {
+                    val member = agent.getValue(Agent::class.java)!!
+                    list.add(member)
+                }
+            }
+            allAgents.value = list
+        }
+        return allAgents
     }
 
-    override fun getAllList(): List<Agent> = local.getListAuto()
+    override fun getMember(id: String): MutableLiveData<Agent?> {
 
-    override fun getListAgentTunggal(nik: String?, poin: Int): Agent? = local.getListAgentTunggal(nik, poin)
+        val mDatabase = Firebase.database("https://ybebright-app-default-rtdb.asia-southeast1.firebasedatabase.app/")
 
-    override fun getListAgent(nik: String?, poin: Int): Agent? = local.getListAgent(nik, poin)
+        val fixedData = MutableLiveData<Agent?>()
+        fixedData.value = null
+        mDatabase.getReference("member").get().addOnSuccessListener {
+            val root = it.children
 
-    override fun getListReseller(nik: String?, poin: Int): Agent? = local.getListReseller(nik, poin)
+            main@ for (place in root) {
+                for (agent in place.children) {
+                    if (agent.key == id) {
+                        fixedData.value = agent.getValue(Agent::class.java)
+                        break@main
+                    }
+                }
+            }
+        }
+        return fixedData
+    }
 
     override fun getPoin(poin: Int): List<Poin> = local.getPoin(poin)
 
     override fun getIngredients(): List<Ingredient> = local.getIngredients()
+
+    override fun getHowTo(): List<HowTo> = local.getHowTo()
 
     override fun getProvince(): LiveData<List<Province>> {
         val client = remote.getProvince()

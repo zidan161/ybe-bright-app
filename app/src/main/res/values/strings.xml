@@ -29,22 +29,26 @@ atau klik tombol dibawah ini :</string>
         <item>Brightening Glow</item>
         <item>Acne Glow</item>
         <item>Facial Wash</item>
+        <item>Facial Wash Acne</item>
         <item>Day Cream</item>
         <item>Night Cream</item>
         <item>Serum Brightening</item>
         <item>Serum Acne</item>
         <item>Toner</item>
+        <item>Refresh Face Cleansing</item>
     </string-array>
 
     <array name="product_image">
         <item>@drawable/foto_paketbg</item>
         <item>@drawable/foto_paketag</item>
-        <item>@drawable/foto_facewash</item>
+        <item>@drawable/foto_facialwash</item>
+        <item>@drawable/foto_facialwashacne</item>
         <item>@drawable/foto_daycream</item>
         <item>@drawable/foto_nightcream</item>
-        <item>@drawable/foto_serumbrghtn</item>
+        <item>@drawable/foto_serumbrightening</item>
         <item>@drawable/foto_serumacne</item>
         <item>@drawable/foto_toner</item>
+        <item>@drawable/foto_refresh</item>
     </array>
 
     <array name="slide">

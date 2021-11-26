@@ -13,6 +13,7 @@ import com.example.ybebrightapp.data.JsonHelper
 import com.example.ybebrightapp.databinding.FragmentProductBinding
 import com.example.ybebrightapp.main.MainActivity
 import com.example.ybebrightapp.model.Agent
+import com.example.ybebrightapp.model.Price
 import com.example.ybebrightapp.model.Product
 import com.example.ybebrightapp.payment.PriceFragment
 import com.example.ybebrightapp.viewmodel.ViewModelFactory
@@ -47,7 +48,7 @@ class ProductFragment : Fragment() {
         binding.rvProduct.apply {
             var status = "customer"
             if (member != null) {
-                status = member.status
+                status = member.keagenan
             }
             adapter = ProductAdapter(products, status) { product, stats ->
                 CoroutineScope(Dispatchers.Main).launch {

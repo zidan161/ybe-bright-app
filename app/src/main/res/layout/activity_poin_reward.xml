@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".info.PoinRewardActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:text="Poin &amp; Reward"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/table_poin"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:text="Keterangan"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/strip_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/ket_1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Paket = 1 Poin"
+                android:layout_marginStart="7dp"
+                app:layout_constraintStart_toEndOf="@+id/strip_1"
+                app:layout_constraintTop_toTopOf="@+id/strip_1" />
+
+            <TextView
+                android:id="@+id/strip_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ket_1" />
+
+            <TextView
+                android:id="@+id/ket_2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="1 paket produk bernilai total 3 poin, bisa diklaim masing-masing 1 poin oleh AGEN TUNGGAL, AGEN &amp; RESELLER."
+                android:layout_marginStart="7dp"
+                app:layout_constraintStart_toEndOf="@+id/strip_2"
+                app:layout_constraintTop_toTopOf="@+id/strip_2" />
+
+            <TextView
+                android:id="@+id/strip_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ket_2" />
+
+            <TextView
+                android:id="@+id/ket_3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Poin reward dihitung secara kumulatif per ID member dan tidak ada masa berlaku  (tidak akan hilang)"
+                android:layout_marginStart="7dp"
+                app:layout_constraintStart_toEndOf="@+id/strip_3"
+                app:layout_constraintTop_toTopOf="@+id/strip_3" />
+
+            <TextView
+                android:id="@+id/strip_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ket_3" />
+
+            <TextView
+                android:id="@+id/ket_4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Klaim poin reward minimal 50 poin dan bisa diklaim kapanpun (jam kerja)"
+                android:layout_marginStart="7dp"
+                app:layout_constraintStart_toEndOf="@+id/strip_4"
+                app:layout_constraintTop_toTopOf="@+id/strip_4" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

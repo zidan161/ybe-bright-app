@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.ybebrightapp.*
 import com.example.ybebrightapp.agent.AgentActivity
 import com.example.ybebrightapp.databinding.FragmentHomeBinding
+import com.example.ybebrightapp.howto.HowToActivity
 import com.example.ybebrightapp.ingredients.IngredientActivity
 import com.example.ybebrightapp.main.MainActivity
 import com.example.ybebrightapp.model.Agent
@@ -83,11 +84,11 @@ class HomeFragment : Fragment() {
                         data.add(product)
                     }
                     data.add(Product("Paket Premium Glow", R.drawable.foto_pakecoming, true))
-                    data.add(Product("Fresh Cleanshing", R.drawable.pop_up, true))
+                    data.add(Product("Fresh Cleanshing", R.drawable.foto_refresh, true))
                     image.recycle()
                 }
 
-                val status = member?.status ?: "customer"
+                val status = member?.keagenan ?: "customer"
                 val adapter = ProductAdapter(data, status) { _, _ ->
                     val intent = Intent(context, ProductActivity::class.java)
                     intent.putExtra("data", member)

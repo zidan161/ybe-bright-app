@@ -6,7 +6,7 @@
       "Luar Jawa Bali": 260000
     }
   ],
-  "reseller": [
+  "Reseller": [
     {
       "Qty": "3-8",
       "Jawa Bali": 225000,
@@ -23,7 +23,7 @@
       "Luar Jawa Bali": 225000
     }
   ],
-  "agen": [
+  "Agen": [
     {
       "Qty": "25-49",
       "Jawa Bali": 200000,
@@ -40,7 +40,7 @@
       "Luar Jawa Bali": 200000
     }
   ],
-  "agen tunggal": [
+  "Agen Tunggal": [
     {
       "Qty": "500",
       "Jawa Bali": 175000,

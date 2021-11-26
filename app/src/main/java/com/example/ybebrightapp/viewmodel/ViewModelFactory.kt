@@ -7,6 +7,7 @@ import com.example.ybebrightapp.ProfileViewModel
 import com.example.ybebrightapp.agent.AgentViewModel
 import com.example.ybebrightapp.data.MainRepository
 import com.example.ybebrightapp.hidok.HiDokViewModel
+import com.example.ybebrightapp.howto.HowToViewModel
 import com.example.ybebrightapp.ingredients.IngredientsViewModel
 import com.example.ybebrightapp.product.ProductViewModel
 import com.example.ybebrightapp.utils.Injection
@@ -39,6 +40,9 @@ class ViewModelFactory(private val repository: MainRepository): ViewModelProvide
             }
             modelClass.isAssignableFrom(IngredientsViewModel::class.java) -> {
                 IngredientsViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(HowToViewModel::class.java) -> {
+                HowToViewModel(repository) as T
             }
             modelClass.isAssignableFrom(HiDokViewModel::class.java) -> {
                 HiDokViewModel() as T

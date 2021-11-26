@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".mainpage.InfoFragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="25dp"
+        android:textSize="20sp"
+        android:textColor="@color/tosca"
+        android:gravity="center"
+        android:text="Infomasi"/>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@color/black"/>
+
+    <TextView
+        android:id="@+id/btn_sistem_keagenan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="30dp"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:clickable="true"
+        android:background="?attr/selectableItemBackground"
+        android:text="Sistem Keagenan"
+        android:focusable="true"
+        app:drawableRightCompat="@drawable/ic_next" />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@color/black"/>
+
+    <TextView
+        android:id="@+id/btn_harga"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="30dp"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:clickable="true"
+        android:background="?attr/selectableItemBackground"
+        android:text="Harga Produk Berjenjang"
+        app:drawableRightCompat="@drawable/ic_next"
+        android:focusable="true" />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@color/black"/>
+
+    <TextView
+        android:id="@+id/btn_ketentuan_keagenan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="30dp"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:clickable="true"
+        android:background="?attr/selectableItemBackground"
+        android:text="Ketentuan Keagenan"
+        app:drawableRightCompat="@drawable/ic_next"
+        android:focusable="true" />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@color/black"/>
+
+    <TextView
+        android:id="@+id/btn_peraturan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="30dp"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:clickable="true"
+        android:background="?attr/selectableItemBackground"
+        android:text="Peraturan &amp; Sanksi"
+        app:drawableRightCompat="@drawable/ic_next"
+        android:focusable="true" />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@color/black"/>
+
+    <TextView
+        android:id="@+id/btn_reward"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="30dp"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:clickable="true"
+        android:background="?attr/selectableItemBackground"
+        android:text="Poin Reward"
+        app:drawableRightCompat="@drawable/ic_next"
+        android:focusable="true" />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@color/black"/>
+
+</LinearLayout>

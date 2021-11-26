@@ -32,7 +32,7 @@ fun getDate(): String {
 }
 
 fun Int.setDecimal(): String {
-    val format = DecimalFormat("##.###")
+    val format = DecimalFormat("##,###")
     return format.format(this)
 }
 

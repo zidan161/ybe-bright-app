@@ -4,10 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.ybebrightapp.R
-import com.example.ybebrightapp.data.JsonHelper
 import com.example.ybebrightapp.databinding.ActivityIngredientBinding
 import com.example.ybebrightapp.viewmodel.ViewModelFactory
+import com.example.ybebrightapp.ingredients.IngredientAdapter
 
 class IngredientActivity : AppCompatActivity() {
 

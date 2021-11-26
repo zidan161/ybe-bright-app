@@ -9,7 +9,7 @@ data class Price(
     @SerializedName("Qty")
     var qty: String,
     @SerializedName("Jawa Bali")
-    var jawaBali: Int,
+    var harga: Int,
     @SerializedName("Luar Jawa Bali")
     var luarJawaBali: Int
 ): Parcelable

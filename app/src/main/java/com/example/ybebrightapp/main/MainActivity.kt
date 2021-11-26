@@ -11,6 +11,7 @@ import com.example.ybebrightapp.databinding.ActivityMainBinding
 import com.example.ybebrightapp.databinding.DialogImageBinding
 import com.example.ybebrightapp.hidok.ConsulActivity
 import com.example.ybebrightapp.mainpage.HomeFragment
+import com.example.ybebrightapp.mainpage.InfoFragment
 import com.example.ybebrightapp.mainpage.ProfileFragment
 import com.example.ybebrightapp.utils.showAlert
 
@@ -59,6 +60,13 @@ class MainActivity : AppCompatActivity() {
                         .replace(
                             R.id.main_frame,
                             profileFragment)
+                        .commit()
+                    true
+                } R.id.info -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(
+                            R.id.main_frame,
+                            InfoFragment())
                         .commit()
                     true
                 } else -> {

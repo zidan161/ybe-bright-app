@@ -128,19 +128,19 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:adjustViewBounds="true"
-                        android:contentDescription="@string/support"
+                        android:contentDescription="Informasi Produk"
                         android:src="@drawable/btn_ingredients" />
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="21dp"
+                        android:layout_height="28dp"
                         android:layout_marginTop="8dp"
                         android:gravity="center"
                         android:autoSizeTextType="uniform"
                         android:autoSizeMinTextSize="10sp"
                         android:autoSizeMaxTextSize="100sp"
                         android:autoSizeStepGranularity="2sp"
-                        android:text="Ingredient" />
+                        android:text="Informasi Produk" />
 
                 </LinearLayout>
 

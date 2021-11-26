@@ -11,7 +11,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import java.util.concurrent.Executors
 import androidx.camera.core.*
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.fragment.app.Fragment
@@ -21,14 +20,12 @@ import com.example.ybebrightapp.viewmodel.ViewModelFactory
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
-import java.util.concurrent.ExecutorService
 
 class CameraFragment : Fragment() {
 
     private var imageCapture: ImageCapture? = null
 
     private lateinit var outputDirectory: File
-    private lateinit var cameraExecutor: ExecutorService
 
     private lateinit var binding: FragmentCameraBinding
 
@@ -64,7 +61,6 @@ class CameraFragment : Fragment() {
 
         outputDirectory = getOutputDirectory()
 
-        cameraExecutor = Executors.newSingleThreadExecutor()
         return binding.root
     }
 
@@ -166,11 +162,6 @@ class CameraFragment : Fragment() {
         }
         return if (mediaDir != null && mediaDir.exists())
             mediaDir else requireActivity().filesDir
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        cameraExecutor.shutdown()
     }
 
     companion object {

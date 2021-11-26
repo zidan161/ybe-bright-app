@@ -14,16 +14,8 @@ import com.example.ybebrightapp.databinding.ActivityLoginBinding
 import com.example.ybebrightapp.main.MainActivity
 import com.example.ybebrightapp.utils.hideKeyboard
 import com.example.ybebrightapp.viewmodel.ViewModelFactory
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class LoginActivity : AppCompatActivity() {
-
-    companion object {
-        const val HAS_LOGIN = "login"
-    }
 
     private lateinit var binding: ActivityLoginBinding
     private lateinit var preferences: SharedPreferences
@@ -37,14 +29,12 @@ class LoginActivity : AppCompatActivity() {
         val viewModel = ViewModelProvider(this, factory)[AgentViewModel::class.java]
 
         preferences = getSharedPreferences("myShared", MODE_PRIVATE)
-        if (preferences.getBoolean(HAS_LOGIN, false)) {
 
-        }
+        val idSimpan = preferences.getString("id", null)
 
         var fixedData: Agent? = null
 
-        val allData = viewModel.getAllList()
-        val id = MutableLiveData<Agent>()
+        val id = MutableLiveData<String>()
 
         binding.btnSkip.setOnClickListener {
             hideKeyboard()
@@ -56,36 +46,36 @@ class LoginActivity : AppCompatActivity() {
         binding.edtId.setOnFocusChangeListener { _, hasFocus ->
             binding.imgCheck.visibility = View.GONE
             if (!hasFocus) {
-
-                binding.pgId.visibility = View.VISIBLE
-
-                var count = 0
-                for (i in allData) {
-                    if (binding.edtId.text.toString() == i.id) {
-                        id.value = i
-                        break
-                    }
-
-                    count++
-                    if (count == allData.size) {
-                        binding.pgId.visibility = View.GONE
-                        binding.edtId.error = "ID tidak terdaftar"
+                val idText = binding.edtId.text.toString()
+                if (idSimpan != null) {
+                    if (idText == idSimpan) {
+                        binding.edtId.error = "Aplikasi hanya boleh satu akun"
+                        return@setOnFocusChangeListener
                     }
                 }
+                binding.pgId.visibility = View.VISIBLE
+
+                id.value = idText
+                println(id.value)
             }
         }
 
-        id.observe(this) { agent ->
+        id.observe(this) { idMember ->
 
-            CoroutineScope(Dispatchers.IO).launch {
-                val listAgent = viewModel.getListAgent(agent.nik, agent.poin)
-                val listAgentTunggal = viewModel.getListAgentTunggal(agent.nik, agent.poin)
-                val listReseller = viewModel.getListReseller(agent.nik, agent.poin)
+            val data = viewModel.getMember(idMember)
 
-                withContext(Dispatchers.Main) {
-                    fixedData = listAgent ?: listAgentTunggal ?: listReseller
+            data.observe(this) { member ->
+                if (member == null) {
+                    binding.pgId.visibility = View.GONE
+                    binding.edtId.error = "ID tidak terdaftar"
+                } else {
+                    fixedData = member
+                    if (idSimpan == null) {
+                        preferences.edit().putString("id", member.idMember).apply()
+                    }
                     binding.pgId.visibility = View.GONE
                     binding.imgCheck.visibility = View.VISIBLE
+                    binding.edtId.error = null
                 }
             }
         }
@@ -93,7 +83,7 @@ class LoginActivity : AppCompatActivity() {
         binding.btnLogin.setOnClickListener {
             hideKeyboard()
             if (fixedData != null) {
-                if (binding.edtPhone.text.toString() == fixedData?.phone) {
+                if (binding.edtPhone.text.toString() == fixedData?.no_hp) {
                     val intent = Intent(this, MainActivity::class.java)
                     intent.putExtra(MainActivity.DATA_KEY, fixedData)
                     startActivity(intent)

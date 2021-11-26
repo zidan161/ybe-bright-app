@@ -58,32 +58,41 @@ class PriceFragment : BottomSheetDialogFragment() {
 
         binding.btnAddChart.setOnClickListener {
             hideKeyboard()
-            val qty = binding.edtQty.text.toString().trim().toInt()
+            val qty = binding.edtQty.text.toString().trim()
             var finalPrice = 0
 
-            if (status == "agen tunggal") {
-                if (qty < price[price.lastIndex].qty.toInt()) {
-                    binding.edtQty.error = "Jumlah tidak sesuai"
-                    return@setOnClickListener
-                }
-                finalPrice = price[price.lastIndex].jawaBali
+            if (qty.isEmpty()) {
+                binding.edtQty.error = "Masukkan Jumlah"
+                return@setOnClickListener
+            }
+
+            val minimalOrder: Int =
+                if (status == "Agen Tunggal" || status == "Agen") { 10 }
+                else if (status == "Agen Tunggal") { 3 }
+                else { 0 }
+
+            if (status == "Agen Tunggal") {
+                finalPrice = price[price.lastIndex].harga
             } else {
-                var count = 0
                 for (i in price) {
                     val range = toRange(i.qty)
-                    if (qty in range) {
-                        finalPrice = i.jawaBali
+                    if (qty.toInt() in range) {
+                        finalPrice = i.harga
                         break
-                    }
-                    count++
-                    if (count == price.size && qty !in range) {
-                        binding.edtQty.error = "Jumlah tidak sesuai"
-                        return@setOnClickListener
+                    } else if (qty.toInt() > range.last) {
+                        finalPrice = price[price.lastIndex].harga
                     }
                 }
             }
 
-            val item = Buy(product.name, product.image, qty, finalPrice, finalPrice*qty)
+            if (!product.isPaket) {
+                if (qty.toInt() != minimalOrder) {
+                    binding.edtQty.error = "Jumlah kurang dari batas minimal"
+                    return@setOnClickListener
+                }
+            }
+
+            val item = Buy(product.name, product.image, qty.toInt(), finalPrice, finalPrice*qty.toInt(), product.isPaket)
 
             viewModel.addItem(item)
             dismiss()

@@ -68,11 +68,11 @@ class ProfileFragment : Fragment() {
             val viewModel = ViewModelProvider(this, factory)[ProfileViewModel::class.java]
 
             with(fragmentProfileBinding) {
-                tvStatus.text = data?.status?.uppercase()
-                if (data?.status != "customer") {
+                tvStatus.text = data?.keagenan?.uppercase()
+                if (data?.keagenan != "customer") {
                     database =
                         Firebase.database("https://ybebright-app-default-rtdb.asia-southeast1.firebasedatabase.app/")
-                        database.getReference(PATH_PROFILE).child(data?.id.toString())
+                        database.getReference(PATH_PROFILE).child(data?.idMember.toString())
                             .addValueEventListener(object : ValueEventListener {
                                 override fun onDataChange(snapshot: DataSnapshot) {
                                     if (snapshot.value != null) {
@@ -88,13 +88,13 @@ class ProfileFragment : Fragment() {
                             })
                 }
                 if (data != null) {
-                    tvName.text = data?.name
-                    tvValId.text = data?.id
-                    tvValPoin.text = data?.poin.toString()
+                    tvName.text = data?.nama
+                    tvValId.text = data?.idMember
+                    tvValPoin.text = data?.point.toString()
                     tvNik.text = data?.nik
-                    tvPhone.text = data?.phone
+                    tvPhone.text = data?.no_hp
                     tvEmail.text = data?.email
-                    tvAddress.text = "${data?.address}, ${data?.city}"
+                    tvAddress.text = "${data?.alamat}, ${data?.kota}"
                 } else {
                     btnLogin.visibility = View.VISIBLE
                     cvInfo.visibility = View.INVISIBLE
@@ -109,14 +109,14 @@ class ProfileFragment : Fragment() {
                     startActivity(intent)
                 }
                 tvValPoin.setOnClickListener {
-                    val list = viewModel.getPoin(data?.poin!!)
+                    val list = viewModel.getPoin(data?.point!!.toInt())
                     setRadio(list)
                 }
                 imgProfile.setOnClickListener {
                     getPhoto.launch(
                         ImagePicker.with(requireActivity())
                             .galleryOnly()
-                            .cropOval()
+                            .cropSquare()
                             .createIntent()
                     )
                 }
@@ -127,7 +127,7 @@ class ProfileFragment : Fragment() {
     private fun setPhoto(uri: Uri) {
         val storageReference = Firebase.storage
             .getReference("img_profile")
-            .child(data?.id ?: "")
+            .child(data?.idMember ?: "")
         putImageInStorage(storageReference, uri)
     }
 
@@ -142,7 +142,7 @@ class ProfileFragment : Fragment() {
                     .addOnSuccessListener { uri ->
                         loadImageIntoView(fragmentProfileBinding.imgProfile, uri.toString())
                         database.getReference(PATH_PROFILE)
-                            .child("${data?.id}")
+                            .child("${data?.idMember}")
                             .setValue(uri.toString())
                     }
             }

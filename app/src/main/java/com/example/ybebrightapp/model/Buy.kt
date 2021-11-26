@@ -6,12 +6,9 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Buy (
-    @PropertyName("nama_barang")
     var name: String?,
     var img: Int?,
-    @PropertyName("qty")
     var count: Int,
-    @PropertyName("harga")
     var price: Int,
-    @PropertyName("total")
-    var total: Int): Parcelable
+    var total: Int,
+    var isPaket: Boolean): Parcelable

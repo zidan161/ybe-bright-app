@@ -1,9 +1,9 @@
 package com.example.ybebrightapp.data
 
 import android.content.Context
-import com.example.ybebrightapp.model.Agent
 import com.example.ybebrightapp.model.Product
 import com.example.ybebrightapp.R
+import com.example.ybebrightapp.howto.HowTo
 import com.example.ybebrightapp.ingredients.Ingredient
 import com.example.ybebrightapp.model.Poin
 import com.example.ybebrightapp.model.Price
@@ -48,91 +48,6 @@ class JsonHelper(private val ctx: Context) {
         return data
     }
 
-    fun loadAll() : List<Agent> {
-        val list = ArrayList<Agent>()
-        try {
-            val responseObject = JSONObject(parsingFileToString("auto.json").toString())
-            val listArray = responseObject.getJSONArray("data")
-            for (i in 0 until listArray.length()){
-
-                val data = listArray.getJSONObject(i)
-                val gson = Gson()
-
-                val agent = gson.fromJson(data.toString(), Agent::class.java)
-                list.add(agent)
-            }
-        } catch (e: JSONException) {
-            e.printStackTrace()
-        }
-        return list
-    }
-
-    fun loadAgentTunggal(nik: String?, poin: Int): Agent? {
-        var trueAgent: Agent? = null
-        try {
-            val responseObject = JSONObject(parsingFileToString("agen_tunggal.json").toString())
-            val listArray = responseObject.getJSONArray("data")
-            for (i in 0 until listArray.length()){
-
-                val data = listArray.getJSONObject(i)
-                    if (data.getString("NIK").equals(nik)) {
-                        data.put("status", "agen tunggal")
-                        data.put("poin", poin)
-                        val gson = Gson()
-
-                    trueAgent = gson.fromJson(data.toString(), Agent::class.java)
-                }
-            }
-        } catch (e: JSONException){
-            e.printStackTrace()
-        }
-        return trueAgent
-    }
-
-    fun loadAgent(nik: String?, poin: Int): Agent? {
-        var trueAgent: Agent? = null
-        try {
-            val responseObject = JSONObject(parsingFileToString("agen.json").toString())
-            val listArray = responseObject.getJSONArray("data")
-            for (i in 0 until listArray.length()){
-
-                val data = listArray.getJSONObject(i)
-                if (data.getString("NIK").equals(nik)) {
-                    data.put("status", "Reseller")
-                    data.put("poin", poin)
-                    val gson = Gson()
-
-                    trueAgent = gson.fromJson(data.toString(), Agent::class.java)
-                }
-            }
-        } catch (e: JSONException){
-            e.printStackTrace()
-        }
-        return trueAgent
-    }
-
-    fun loadReseller(nik: String?, poin: Int): Agent? {
-        var trueAgent: Agent? = null
-        try {
-            val responseObject = JSONObject(parsingFileToString("reseller.json").toString())
-            val listArray = responseObject.getJSONArray("data")
-            for (i in 0 until listArray.length()){
-
-                val data = listArray.getJSONObject(i)
-                if (data.getString("NIK").equals(nik)) {
-                    data.put("status", "Reseller")
-                    data.put("poin", poin)
-                    val gson = Gson()
-
-                    trueAgent = gson.fromJson(data.toString(), Agent::class.java)
-                }
-            }
-        } catch (e: JSONException){
-            e.printStackTrace()
-        }
-        return trueAgent
-    }
-
     fun loadPrice(fileName: String, arrayName: String): ArrayList<Price> {
         val finalPrice = ArrayList<Price>()
         val responseObject = JSONObject(parsingFileToString(fileName).toString())
@@ -149,6 +64,27 @@ class JsonHelper(private val ctx: Context) {
             } catch (e: JSONException) {
                 e.printStackTrace()
             }
+        return finalPrice
+    }
+
+    fun loadPriceByStatus(status: String): Map<String, Int> {
+        val finalPrice = mutableMapOf<String, Int>()
+        val responseObject = JSONObject(parsingFileToString("harga_satuan.json").toString())
+        try {
+            val allProduk = listOf("Facial Wash", "Facial Wash Acne", "Toner", "Serum Brightening", "Serum Acne", "Day Cream", "Night Cream", "Refresh Face Cleansing")
+            for (a in 0 until responseObject.length()) {
+                val listArray = responseObject.getJSONArray(allProduk[a])
+                for (i in 0 until listArray.length()) {
+
+                    val data = listArray.getJSONObject(i)
+                    if (data.getString("status") == status) {
+                        finalPrice[allProduk[a]] = data.getInt("Jawa Bali")
+                    }
+                }
+            }
+        } catch (e: JSONException) {
+            e.printStackTrace()
+        }
         return finalPrice
     }
 
@@ -203,6 +139,25 @@ class JsonHelper(private val ctx: Context) {
 
                 val ing = gson.fromJson(data.toString(), Ingredient::class.java)
                 list.add(ing)
+            }
+        } catch (e: JSONException) {
+            e.printStackTrace()
+        }
+        return list
+    }
+
+    fun loadHowTo(): ArrayList<HowTo> {
+        val list = ArrayList<HowTo>()
+        try {
+            val responseObject = JSONObject(parsingFileToString("howto.json").toString())
+            val listArray = responseObject.getJSONArray("data")
+            for (i in 0 until listArray.length()){
+
+                val data = listArray.getJSONObject(i)
+                val gson = Gson()
+
+                val how = gson.fromJson(data.toString(), HowTo::class.java)
+                list.add(how)
             }
         } catch (e: JSONException) {
             e.printStackTrace()

@@ -22,9 +22,9 @@ class AgentAdapter(private val data: List<Agent>): RecyclerView.Adapter<AgentAda
     class AgentViewHolder(private val binding: ItemAgentBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(agent: Agent) {
             with(binding) {
-                tvName.text = agent.name
-                tvAddress.text = "${agent.address}, ${agent.city}"
-                tvPhone.text = agent.phone
+                tvName.text = agent.nama
+                tvAddress.text = "${agent.alamat}, ${agent.kota}"
+                tvPhone.text = agent.no_hp
             }
         }
     }

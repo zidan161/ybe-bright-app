@@ -26,6 +26,7 @@ class ConsulActivity : AppCompatActivity() {
     private lateinit var binding: ActivityConsulBinding
     private lateinit var preferences: SharedPreferences
     private var member: Agent? = null
+    private val frag = CameraFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,11 +35,6 @@ class ConsulActivity : AppCompatActivity() {
         member = intent.getParcelableExtra("data")
 
         preferences = getSharedPreferences("myShared", MODE_PRIVATE)
-
-        if (member == null) {
-            binding.mainView.visibility = View.GONE
-            binding.sorryView.visibility = View.VISIBLE
-        }
 
         val factory = ViewModelFactory.getInstance(this)
         val viewModel = ViewModelProvider(this, factory)[HiDokViewModel::class.java]
@@ -173,7 +169,11 @@ class ConsulActivity : AppCompatActivity() {
                     viewModel.uriLeft.value)
 
                 val intent = Intent(this@ConsulActivity, HiDokActivity::class.java)
-                intent.putExtra("data", member)
+                if (member == null) {
+                    intent.putExtra("name", name)
+                } else {
+                    intent.putExtra("data", member)
+                }
                 intent.putExtra("consul", data)
                 startActivity(intent)
             }
@@ -182,7 +182,6 @@ class ConsulActivity : AppCompatActivity() {
 
     private fun openCamera(req: String) {
         hideKeyboard()
-        val frag = CameraFragment()
         val bundle = Bundle()
         bundle.putString("req", req)
         binding.mainView.visibility = View.GONE
@@ -195,8 +194,7 @@ class ConsulActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         super.onBackPressed()
-        if (member != null) {
-            binding.mainView.visibility = View.VISIBLE
-        }
+        frag.onDestroy()
+        binding.mainView.visibility = View.VISIBLE
     }
 }

@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -25,6 +24,7 @@ import com.example.ybebrightapp.viewmodel.ViewModelFactory
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import java.lang.Math.min
 import java.lang.Math.random
 
 class CheckoutFragment : Fragment() {
@@ -54,9 +54,16 @@ class CheckoutFragment : Fragment() {
         val member = arguments?.getParcelable<Agent>("data")
 
         if (member != null) {
-            status = member.status
-            binding.edtName.setText(member.name)
-            binding.edtPhone.setText(member.phone)
+            status = member.keagenan
+            binding.edtName.setText(member.nama)
+            binding.edtPhone.setText(member.no_hp)
+        }
+
+        val minimal = when (member?.keagenan) {
+            "Reseller" -> 3
+            "Agen" -> 25
+            "Agen Tunggal" -> 100
+            else -> 0
         }
 
         val factory = ViewModelFactory.getInstance(requireActivity())
@@ -76,7 +83,15 @@ class CheckoutFragment : Fragment() {
         var harga = 0
         viewModel.listItem.observe(viewLifecycleOwner) { data ->
 
-            if (data != null) {
+            var countPaket = 0
+
+            data.forEach {
+                if (it.isPaket) {
+                    countPaket += it.count
+                }
+            }
+
+            if (data != null && countPaket >= minimal) {
                 proAdapter.setData(data)
 
                 for (i in data) {
@@ -91,22 +106,12 @@ class CheckoutFragment : Fragment() {
 
                 binding.btnSetCourier.setOnClickListener { openCourier() }
 
+            } else if (data != null && countPaket < minimal) {
+                binding.tvError.visibility = View.VISIBLE
+                binding.tvError.text = "Jumlah item tidak sesuai dengan batas minimal"
             } else {
-                binding.btnSetAddress.setOnClickListener {
-                    Toast.makeText(
-                        requireContext(),
-                        "Tidak ada item di keranjang",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-
-                binding.btnSetCourier.setOnClickListener {
-                    Toast.makeText(
-                        requireContext(),
-                        "Tidak ada item di keranjang",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
+                binding.tvError.visibility = View.VISIBLE
+                binding.tvError.text = "Tidak ada item di keranjang"
             }
         }
 
@@ -164,13 +169,15 @@ class CheckoutFragment : Fragment() {
                 amount += it.total
             }
             val id = (1..1000).random().toString().padStart(4, '0')
+            val isFree = member?.keagenan == "Agen" || member?.keagenan == "Agen Tunggal"
             midtrans.createTransaction(
-                "${member?.id ?: "CSM"}$id",
+                "${member?.idMember ?: "CSM"}$id",
                 amount,
                 upload,
                 address,
                 city,
-                viewModel.courier
+                viewModel.courier,
+                isFree
             )
         }
         return binding.root

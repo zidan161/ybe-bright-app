@@ -24,7 +24,7 @@ class PriceAdapter(private val data: List<Price>): RecyclerView.Adapter<PriceAda
         fun bind(price: Price) {
             with(binding) {
                 tvQty.text = "Qty: ${price.qty}"
-                tvPrice.text = price.jawaBali.setDecimal()
+                tvPrice.text = price.harga.setDecimal()
             }
         }
     }

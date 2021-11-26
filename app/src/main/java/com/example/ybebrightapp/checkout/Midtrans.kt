@@ -5,7 +5,6 @@ import com.example.ybebrightapp.BuildConfig
 import com.example.ybebrightapp.model.Order
 import com.midtrans.sdk.corekit.core.MidtransSDK
 import com.midtrans.sdk.corekit.core.TransactionRequest
-import com.midtrans.sdk.corekit.core.themes.CustomColorTheme
 import com.midtrans.sdk.corekit.models.BillingAddress
 import com.midtrans.sdk.corekit.models.CustomerDetails
 import com.midtrans.sdk.corekit.models.ItemDetails
@@ -29,7 +28,7 @@ class Midtrans(private val ctx: Context) {
         }
     }
 
-    fun createTransaction(id: String, amount: Int, data: Order, address: String, city: String, courier: String) {
+    fun createTransaction(id: String, amount: Int, data: Order, address: String, city: String, courier: String, isFree: Boolean) {
 
         val transaction = TransactionRequest(id, amount.toDouble())
 
@@ -54,7 +53,25 @@ class Midtrans(private val ctx: Context) {
             val itemDetails = ItemDetails(it.name, it.price.toDouble(), it.count, it.name)
             listItem.add(itemDetails)
         }
-        listItem.add(ItemDetails("Ongkir", data.cost!!.toDouble(), 1, courier+" "+data.courier))
+        if (isFree) {
+            listItem.add(
+                ItemDetails(
+                    "Ongkir",
+                    0.toDouble(),
+                    1,
+                    courier + " " + data.courier
+                )
+            )
+        } else {
+            listItem.add(
+                ItemDetails(
+                    "Ongkir",
+                    data.cost!!.toDouble(),
+                    1,
+                    courier + " " + data.courier
+                )
+            )
+        }
 
         transaction.itemDetails = listItem
 

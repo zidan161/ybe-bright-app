@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.ybebrightapp" >
+    package="com.example.ybebrightapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -19,6 +19,21 @@
         android:theme="@style/Theme.YBeBrightApp"
         tools:replace="android:allowBackup">
         <activity
+            android:name=".info.PoinRewardActivity"
+            android:exported="true" />
+        <activity
+            android:name=".info.PeraturanSanksiActivity"
+            android:exported="true" />
+        <activity
+            android:name=".info.KetentuanAgenActivity"
+            android:exported="true" />
+        <activity
+            android:name=".info.HargaProdukActivity"
+            android:exported="true" />
+        <activity
+            android:name=".info.SistemAgenActivity"
+            android:exported="true" />
+        <activity
             android:name=".hidok.ConsulActivity"
             android:exported="true" />
         <activity
@@ -26,7 +41,8 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".RegisterActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".ingredients.IngredientActivity"
             android:screenOrientation="portrait" />
@@ -35,8 +51,9 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".SplashActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@style/SplashTheme" >
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -51,7 +68,7 @@
             android:name=".agent.AgentActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".HowToActivity"
+            android:name=".howto.HowToActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".product.ProductActivity"

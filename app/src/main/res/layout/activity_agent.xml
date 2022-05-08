@@ -48,10 +48,18 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="20dp"
-            android:text="Daftar Agen"
+            android:text="Daftar Menjadi Agen"
             android:textStyle="bold"
             app:icon="@drawable/ic_arrow"
             app:iconGravity="end" />
+
+        <SearchView
+            android:id="@+id/search_city"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:iconifiedByDefault="false"
+            android:queryHint="Cari Kota"
+            android:layout_marginTop="15dp"/>
 
         <TextView
             android:layout_width="match_parent"

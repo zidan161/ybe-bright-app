@@ -5,37 +5,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp">
+    android:layout_margin="7dp">
 
-    <ImageView
-        android:id="@+id/messageImageView"
+    <me.himanshusoni.chatmessageview.ChatMessageView
+        android:id="@+id/msg_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:padding="8dp"
-        android:background="@drawable/rounded_message_gray"
-        android:adjustViewBounds="true"
-        android:maxHeight="200dp"
-        android:maxWidth="300dp"
-        android:scaleType="fitCenter"
+        app:cmv_backgroundColor="#88BABABA"
+        app:cmv_backgroundColorPressed="#FFBABABA"
+        app:cmv_cornerRadius="7dp"
         app:layout_constraintStart_toEndOf="@id/messengerImageView"
-        app:layout_constraintTop_toTopOf="parent"
-        android:visibility="gone"
-        tools:srcCompat="@android:drawable/ic_menu_gallery" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/messageTextView"
-        android:layout_width="wrap_content"
-        android:maxWidth="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:padding="10dp"
-        android:background="@drawable/rounded_message_gray"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        app:layout_constraintStart_toEndOf="@id/messengerImageView"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textColor="@color/black"
-        tools:text="This is a message" />
+        <ImageView
+            android:id="@+id/messageImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:maxWidth="200dp"
+            android:scaleType="fitCenter"
+            android:visibility="gone"
+            tools:srcCompat="@android:drawable/ic_menu_gallery" />
+
+        <TextView
+            android:id="@+id/messageTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="200dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            tools:text="This is a message" />
+
+    </me.himanshusoni.chatmessageview.ChatMessageView>
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/messengerImageView"
@@ -43,7 +43,7 @@
         android:layout_height="36dp"
         android:src="@drawable/foto_dokter"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/messageTextView"
+        app:layout_constraintEnd_toStartOf="@id/msg_layout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

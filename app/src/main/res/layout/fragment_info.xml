@@ -14,7 +14,7 @@
         android:textSize="20sp"
         android:textColor="@color/tosca"
         android:gravity="center"
-        android:text="Infomasi"/>
+        android:text="Informasi"/>
 
     <View
         android:layout_width="wrap_content"

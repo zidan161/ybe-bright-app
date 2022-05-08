@@ -112,7 +112,7 @@
                         android:autoSizeMinTextSize="12sp"
                         android:autoSizeMaxTextSize="100sp"
                         android:autoSizeStepGranularity="2sp"
-                        android:text="How To" />
+                        android:text="Tentang" />
 
                 </LinearLayout>
 
@@ -168,7 +168,7 @@
                         android:autoSizeMinTextSize="12sp"
                         android:autoSizeMaxTextSize="100sp"
                         android:autoSizeStepGranularity="2sp"
-                        android:text="Price" />
+                        android:text="Harga" />
 
                 </LinearLayout>
 

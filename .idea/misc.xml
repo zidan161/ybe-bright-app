@@ -24,12 +24,14 @@
         <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2037037037037037" />
         <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/drawable/bg_placeholder.xml" value="0.19537037037037036" />
         <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/drawable/button_selector.xml" value="0.21296296296296297" />
+        <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/drawable/cod.xml" value="0.17314814814814813" />
         <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/drawable/edit_text_shadow.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/drawable/ic_account_circle.xml" value="0.2169230769230769" />
         <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/drawable/ic_add.xml" value="0.1125" />
         <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/drawable/ic_add_image.xml" value="0.20185185185185187" />
         <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/drawable/ic_alert.xml" value="0.2203125" />
         <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/drawable/ic_arrow.xml" value="0.19907407407407407" />
+        <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/drawable/ic_bayar_langsung.xml" value="0.17314814814814813" />
         <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/drawable/ic_camera.xml" value="0.19074074074074074" />
         <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/drawable/ic_chart.xml" value="0.20092592592592592" />
         <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/drawable/ic_check.xml" value="0.19907407407407407" />
@@ -49,18 +51,19 @@
         <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/activity_about.xml" value="0.18070652173913043" />
         <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/activity_agent.xml" value="0.22" />
         <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/activity_checkout.xml" value="0.18" />
-        <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/activity_consul.xml" value="0.22" />
+        <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/activity_consul.xml" value="0.25" />
         <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/activity_courier.xml" value="0.18" />
         <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/activity_harga_produk.xml" value="0.2" />
-        <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/activity_howto.xml" value="0.2" />
-        <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/activity_ingredient.xml" value="0.2" />
-        <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/activity_ketentuan_agen.xml" value="0.22" />
+        <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/activity_howto.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/activity_ingredient.xml" value="0.18" />
+        <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/activity_ketentuan_agen.xml" value="0.18" />
         <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/activity_loading_dialog.xml" value="0.19202898550724637" />
         <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/activity_login.xml" value="0.16" />
         <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/activity_order_detail.xml" value="0.20416666666666666" />
         <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/activity_payment.xml" value="0.18" />
-        <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/activity_peraturan_sanksi.xml" value="0.21" />
-        <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/activity_poin_reward.xml" value="0.18" />
+        <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/activity_peraturan_sanksi.xml" value="0.22" />
+        <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/activity_poin_reward.xml" value="0.25" />
         <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/activity_price.xml" value="0.2" />
         <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/activity_product.xml" value="0.25" />
         <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/activity_quran.xml" value="0.20416666666666666" />
@@ -68,33 +71,44 @@
         <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/activity_sign_in.xml" value="0.20018115942028986" />
         <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/activity_sistem_agen.xml" value="0.22" />
         <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/add_item_layout.xml" value="0.2" />
+        <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/cabang_item.xml" value="0.22" />
+        <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/cabang_kota_item.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/card_order.xml" value="0.22" />
         <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/courier_layout.xml" value="0.16" />
         <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/custom_loading_dialog.xml" value="0.22" />
+        <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/dialog_confirm_cod.xml" value="0.20416666666666666" />
         <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/dialog_image.xml" value="0.33" />
+        <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/dialog_payment.xml" value="0.33" />
+        <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/edit_address.xml" value="0.22" />
         <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/fragment_buy.xml" value="0.18" />
         <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/fragment_camera.xml" value="0.2" />
-        <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/fragment_checkout.xml" value="0.2" />
-        <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/fragment_courier.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/fragment_checkout.xml" value="0.14" />
+        <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/fragment_courier.xml" value="0.16" />
         <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/fragment_hi_dok.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/fragment_home.xml" value="0.22" />
         <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/fragment_info.xml" value="0.2" />
-        <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/fragment_price.xml" value="0.22" />
+        <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/fragment_order.xml" value="0.22" />
+        <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/fragment_pembelian.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/fragment_penjualan.xml" value="0.33" />
+        <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/fragment_price.xml" value="0.16" />
         <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/fragment_product.xml" value="0.18206521739130435" />
-        <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/fragment_profile.xml" value="0.2" />
+        <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/fragment_profile.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/fragment_stock.xml" value="0.18" />
         <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/hi_dok_activity.xml" value="0.18" />
         <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/image_message.xml" value="0.20018115942028986" />
         <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/item_agent.xml" value="0.21" />
-        <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/item_checkout.xml" value="0.2" />
+        <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/item_checkout.xml" value="0.18" />
         <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/item_grid_menu.xml" value="0.1" />
-        <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/item_harga.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/item_harga.xml" value="0.2" />
         <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/item_howto.xml" value="0.22" />
         <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/item_ingredients.xml" value="0.2" />
         <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/item_news.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/item_price.xml" value="0.18" />
         <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/item_product.xml" value="0.33" />
+        <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/item_stock.xml" value="0.25" />
         <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/message.xml" value="0.20018115942028986" />
-        <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/message_me.xml" value="0.2" />
-        <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/message_you.xml" value="0.22" />
+        <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/message_me.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/message_you.xml" value="0.33" />
         <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/poin_layout.xml" value="0.18" />
         <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/set_address.xml" value="0.25" />
         <entry key="..\:/AndroidStudioProjects/YBeBrightApp/app/src/main/res/layout/splash_screen.xml" value="0.20416666666666666" />

@@ -1,14 +1,14 @@
 {
   "customer": [
     {
-      "Qty": "1-2",
+      "Qty": "1",
       "Jawa Bali": 250000,
       "Luar Jawa Bali": 260000
     }
   ],
   "Reseller": [
     {
-      "Qty": "3-8",
+      "Qty": "1-8",
       "Jawa Bali": 225000,
       "Luar Jawa Bali": 235000
     },
@@ -18,7 +18,7 @@
       "Luar Jawa Bali": 230000
     },
     {
-      "Qty": "15-24",
+      "Qty": "15",
       "Jawa Bali": 215000,
       "Luar Jawa Bali": 225000
     }
@@ -35,7 +35,7 @@
       "Luar Jawa Bali": 205000
     },
     {
-      "Qty": "100-499",
+      "Qty": "100",
       "Jawa Bali": 190000,
       "Luar Jawa Bali": 200000
     }

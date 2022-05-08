@@ -171,10 +171,12 @@
                     android:background="#393939" />
 
                 <TextView
+                    android:id="@+id/tv_edit_address"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Alamat"
-                    android:textColor="@color/tosca" />
+                    android:textColor="@color/tosca"
+                    app:drawableEndCompat="@drawable/ic_edit" />
 
                 <TextView
                     android:id="@+id/tv_address"

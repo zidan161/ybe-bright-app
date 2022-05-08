@@ -52,8 +52,9 @@
                 android:id="@+id/ket_1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Paket = 1 Poin"
+                android:text="Per Paket = 1 Poin"
                 android:layout_marginStart="7dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/strip_1"
                 app:layout_constraintTop_toTopOf="@+id/strip_1" />
 
@@ -70,8 +71,9 @@
                 android:id="@+id/ket_2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="1 paket produk bernilai total 3 poin, bisa diklaim masing-masing 1 poin oleh AGEN TUNGGAL, AGEN &amp; RESELLER."
+                android:text="Per Paket bisa di klaim masing-masing 1 poin oleh  AGEN TUNGGAL, AGEN, dan RESELLER"
                 android:layout_marginStart="7dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/strip_2"
                 app:layout_constraintTop_toTopOf="@+id/strip_2" />
 
@@ -90,6 +92,7 @@
                 android:layout_height="wrap_content"
                 android:text="Poin reward dihitung secara kumulatif per ID member dan tidak ada masa berlaku  (tidak akan hilang)"
                 android:layout_marginStart="7dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/strip_3"
                 app:layout_constraintTop_toTopOf="@+id/strip_3" />
 
@@ -106,8 +109,9 @@
                 android:id="@+id/ket_4"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Klaim poin reward minimal 50 poin dan bisa diklaim kapanpun (jam kerja)"
+                android:text="Klaim poin reward minimal 50 poin dan bisa diklaim pada saat jam kerja."
                 android:layout_marginStart="7dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/strip_4"
                 app:layout_constraintTop_toTopOf="@+id/strip_4" />
 

@@ -2,25 +2,25 @@
   "Day Cream": [
     {
       "status": "customer",
-      "Qty": "1-4",
+      "Qty": "1",
       "Jawa Bali": 55000,
       "Luar Jawa Bali": 60000
     },
     {
       "status": "Reseller",
-      "Qty": "5-24",
+      "Qty": "3",
       "Jawa Bali": 45000,
       "Luar Jawa Bali": 50000
     },
     {
       "status": "Agen",
-      "Qty": "25-99",
+      "Qty": "10",
       "Jawa Bali": 40000,
       "Luar Jawa Bali": 45000
     },
     {
       "status": "Agen Tunggal",
-      "Qty": "100",
+      "Qty": "10",
       "Jawa Bali": 35000,
       "Luar Jawa Bali": 40000
     }
@@ -28,25 +28,25 @@
   "Night Cream": [
     {
       "status": "customer",
-      "Qty": "1-4",
+      "Qty": "1",
       "Jawa Bali": 65000,
       "Luar Jawa Bali": 70000
     },
     {
       "status": "Reseller",
-      "Qty": "5-24",
+      "Qty": "3",
       "Jawa Bali": 55000,
       "Luar Jawa Bali": 60000
     },
     {
       "status": "Agen",
-      "Qty": "25-99",
+      "Qty": "10",
       "Jawa Bali": 50000,
       "Luar Jawa Bali": 55000
     },
     {
       "status": "Agen Tunggal",
-      "Qty": "100",
+      "Qty": "10",
       "Jawa Bali": 45000,
       "Luar Jawa Bali": 50000
     }
@@ -54,25 +54,25 @@
   "Facial Wash": [
     {
       "status": "customer",
-      "Qty": "1-4",
+      "Qty": "1",
       "Jawa Bali": 55000,
       "Luar Jawa Bali": 60000
     },
     {
       "status": "Reseller",
-      "Qty": "5-24",
+      "Qty": "3",
       "Jawa Bali": 45000,
       "Luar Jawa Bali": 50000
     },
     {
       "status": "Agen",
-      "Qty": "25-99",
+      "Qty": "10",
       "Jawa Bali": 40000,
       "Luar Jawa Bali": 45000
     },
     {
       "status": "Agen Tunggal",
-      "Qty": "100",
+      "Qty": "10",
       "Jawa Bali": 35000,
       "Luar Jawa Bali": 40000
     }
@@ -80,25 +80,25 @@
   "Facial Wash Acne": [
     {
       "status": "customer",
-      "Qty": "1-4",
+      "Qty": "1",
       "Jawa Bali": 70000,
       "Luar Jawa Bali": 60000
     },
     {
       "status": "Reseller",
-      "Qty": "5-24",
+      "Qty": "3",
       "Jawa Bali": 60000,
       "Luar Jawa Bali": 50000
     },
     {
       "status": "Agen",
-      "Qty": "25-99",
+      "Qty": "10",
       "Jawa Bali": 55000,
       "Luar Jawa Bali": 45000
     },
     {
       "status": "Agen Tunggal",
-      "Qty": "100",
+      "Qty": "10",
       "Jawa Bali": 50000,
       "Luar Jawa Bali": 40000
     }
@@ -106,25 +106,25 @@
   "Toner": [
     {
       "status": "customer",
-      "Qty": "1-4",
+      "Qty": "1",
       "Jawa Bali": 40000,
       "Luar Jawa Bali": 40000
     },
     {
       "status": "Reseller",
-      "Qty": "5-24",
+      "Qty": "3",
       "Jawa Bali": 30000,
       "Luar Jawa Bali": 30000
     },
     {
       "status": "Agen",
-      "Qty": "25-99",
+      "Qty": "10",
       "Jawa Bali": 25000,
       "Luar Jawa Bali": 25000
     },
     {
       "status": "Agen Tunggal",
-      "Qty": "100",
+      "Qty": "10",
       "Jawa Bali": 20000,
       "Luar Jawa Bali": 20000
     }
@@ -132,25 +132,25 @@
   "Serum Brightening": [
     {
       "status": "customer",
-      "Qty": "1-4",
+      "Qty": "1",
       "Jawa Bali": 55000,
       "Luar Jawa Bali": 60000
     },
     {
       "status": "Reseller",
-      "Qty": "5-24",
+      "Qty": "3",
       "Jawa Bali": 45000,
       "Luar Jawa Bali": 50000
     },
     {
       "status": "Agen",
-      "Qty": "25-99",
+      "Qty": "10",
       "Jawa Bali": 40000,
       "Luar Jawa Bali": 45000
     },
     {
       "status": "Agen Tunggal",
-      "Qty": "100",
+      "Qty": "10",
       "Jawa Bali": 35000,
       "Luar Jawa Bali": 40000
     }
@@ -158,25 +158,25 @@
   "Serum Acne": [
     {
       "status": "customer",
-      "Qty": "1-4",
-      "Jawa Bali": 55000,
+      "Qty": "1",
+      "Jawa Bali": 60000,
       "Luar Jawa Bali": 60000
     },
     {
       "status": "Reseller",
-      "Qty": "5-24",
+      "Qty": "3",
       "Jawa Bali": 45000,
       "Luar Jawa Bali": 50000
     },
     {
       "status": "Agen",
-      "Qty": "25-99",
+      "Qty": "10",
       "Jawa Bali": 40000,
       "Luar Jawa Bali": 45000
     },
     {
       "status": "Agen Tunggal",
-      "Qty": "100",
+      "Qty": "10",
       "Jawa Bali": 35000,
       "Luar Jawa Bali": 40000
     }
@@ -184,22 +184,22 @@
   "Refresh Face Cleansing": [
     {
       "status": "customer",
-      "Qty": "1-4",
+      "Qty": "1",
       "Jawa Bali": 60000
     },
     {
       "status": "Reseller",
-      "Qty": "5-24",
+      "Qty": "3",
       "Jawa Bali": 50000
     },
     {
       "status": "Agen",
-      "Qty": "25-99",
+      "Qty": "10",
       "Jawa Bali": 45000
     },
     {
       "status": "Agen Tunggal",
-      "Qty": "100",
+      "Qty": "10",
       "Jawa Bali": 40000
     }
   ]

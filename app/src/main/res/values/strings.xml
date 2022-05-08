@@ -9,7 +9,7 @@
     <string name="password">Password</string>
     <string name="email">Email</string>
     <string name="logo">logo</string>
-    <string name="how_to">How To</string>
+    <string name="how_to">Tentang</string>
     <string name="payment">Untuk pembayaran bisa langsung transfer ke nomor rek. berikut</string>
     <string name="pick_single">Please select your image</string>
 
@@ -37,6 +37,19 @@ atau klik tombol dibawah ini :</string>
         <item>Toner</item>
         <item>Refresh Face Cleansing</item>
     </string-array>
+
+    <integer-array name="product_weight">
+        <item>264</item>
+        <item>213</item>
+        <item>94</item>
+        <item>90</item>
+        <item>33</item>
+        <item>31</item>
+        <item>27</item>
+        <item>25</item>
+        <item>73</item>
+        <item>126</item>
+    </integer-array>
 
     <array name="product_image">
         <item>@drawable/foto_paketbg</item>

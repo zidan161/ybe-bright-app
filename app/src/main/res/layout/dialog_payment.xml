@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="100dp"
+    android:orientation="horizontal">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/btn_langsung"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:focusable="true"
+        android:clickable="true"
+        android:background="?attr/selectableItemBackground">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:padding="20dp"
+            android:background="@color/tosca"
+            android:textSize="10sp"
+            android:text="Bayar Langsung"
+            android:textColor="@color/white"
+            app:drawableTopCompat="@drawable/ic_bayar_langsung"
+            android:drawablePadding="20dp"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/btn_cod"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:focusable="true"
+        android:clickable="true"
+        android:background="?attr/selectableItemBackground">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="COD"
+            android:layout_marginVertical="20dp"
+            android:layout_marginHorizontal="40dp"
+            app:drawableTopCompat="@drawable/cod"
+            android:textColor="@color/tosca"
+            android:drawablePadding="20dp"/>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

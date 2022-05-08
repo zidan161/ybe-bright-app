@@ -35,7 +35,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:text="MEMBER RESMI adalah member yang sudah mempunyai ID Member dan sudah terdaftar di aplikasi."
+            android:text="Member resmi adalah yang sudah terdaftar di aplikasi dan mendapatkan ID Member."
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/tv_1"
             app:layout_constraintTop_toTopOf="@+id/tv_1" />
@@ -73,7 +73,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="7dp"
-            android:text="AGEN TUNGGAL tidak boleh menjual/mendistribusikan produk ke RESELLER langsung, harus melalui Agen"
+            android:text="AGEN TUNGGAL tidak boleh menjual/mendistribusikan produk ke RESELLER langsung, harus melalui AGEN"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/tv_3"
             app:layout_constraintTop_toTopOf="@+id/tv_3" />
@@ -111,7 +111,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="7dp"
-            android:text="AGEN TUNGGAL, AGEN &amp; RESELLER wajib melayani orderan dalam waktu 1x24 jam, jika ada kendala harus memberikan informasi ke tim manajemen. Jika tidak ada konfirmasi, maka proses tersebut akan dialihkan oleh Tim Manajemen ke jaringan lainya."
+            android:text="AGEN TUNGGAL, AGEN &amp; RESELLER wajib melayani orderan dalam waktu 1x24 jam, jika ada kendala harus memberikan informasi ke tim manajemen. apabila tidak ada konfirmasi, maka proses tersebut akan dialihkan oleh Tim Manajemen ke jaringan lainnya."
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/tv_5"
             app:layout_constraintTop_toTopOf="@+id/tv_5" />
@@ -187,7 +187,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="7dp"
-            android:text="Member tidak boleh menjual  produk ke konsumen/end user di bawah harga Rp 250.000 per paket."
+            android:text="Member tidak boleh menjual  produk ke konsumen/end user di bawah harga yang sudah ditentukan per paket."
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/tv_9"
             app:layout_constraintTop_toTopOf="@+id/tv_9" />
@@ -245,7 +245,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="7dp"
             android:layout_marginBottom="20dp"
-            android:text="Jika peringatan diabaikan, maka Keagenan Member akan DIBEKUKAN, POIN REWARD HANGUS &amp; DIKELUARKAN dari keagenan Ybe Bright"
+            android:text="Jika peringatan diabaikan, maka Keagenan Member akan DIBEKUKAN, POIN REWARD HANGUS &amp; DIKELUARKAN dari keagenan YBe Bright"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/tv_p_2"
             app:layout_constraintTop_toTopOf="@+id/tv_p_2" />

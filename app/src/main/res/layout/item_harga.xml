@@ -217,6 +217,38 @@
             app:layout_constraintStart_toEndOf="@+id/refresh_agent"
             app:layout_constraintTop_toTopOf="@+id/refresh_agent" />
 
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/black"
+            app:layout_constraintTop_toBottomOf="@+id/refresh_agent" />
+
+        <TextView
+            android:id="@+id/min_order"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:text="Min. Order"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+        <TextView
+            android:id="@+id/tv_min_order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:text="20 pcs"
+            app:layout_constraintBottom_toBottomOf="@+id/min_order"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintStart_toEndOf="@+id/min_order"
+            app:layout_constraintTop_toTopOf="@+id/min_order" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>

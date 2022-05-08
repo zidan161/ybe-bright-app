@@ -6,35 +6,36 @@
     android:layout_height="wrap_content"
     android:layout_margin="5dp">
 
-    <ImageView
-        android:id="@+id/messageImageView"
+    <me.himanshusoni.chatmessageview.ChatMessageView
+        android:id="@+id/msg_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:background="@drawable/rounded_message_blue"
-        android:padding="8dp"
-        android:adjustViewBounds="true"
-        android:maxHeight="200dp"
-        android:maxWidth="300dp"
-        android:scaleType="fitCenter"
-        app:layout_constraintEnd_toEndOf="@id/messageTextView"
-        app:layout_constraintTop_toTopOf="parent"
-        android:visibility="gone"
-        tools:srcCompat="@android:drawable/ic_menu_gallery" />
-
-    <TextView
-        android:id="@+id/messageTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:background="@drawable/rounded_message_blue"
-        android:maxWidth="250dp"
-        android:padding="10dp"
-        android:textAppearance="?android:attr/textAppearanceMedium"
+        app:cmv_backgroundColor="#00BCD4"
+        app:cmv_backgroundColorPressed="#03A9F4"
+        app:cmv_cornerRadius="7dp"
+        app:cmv_arrowPosition="right"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textColor="@color/black"
-        tools:text="This is a message" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/messageImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="200dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:visibility="gone"
+            tools:srcCompat="@android:drawable/ic_menu_gallery" />
+
+        <TextView
+            android:id="@+id/messageTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="200dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            tools:text="This is a message" />
+
+    </me.himanshusoni.chatmessageview.ChatMessageView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

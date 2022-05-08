@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:569265063710:android:b44683aabcebedcacb2b0f",
         "android_client_info": {
-          "package_name": "com.example.ybebrightapp"
+          "package_name": "com.zidan.ybebrightapp"
         }
       },
       "oauth_client": [
@@ -17,7 +17,7 @@
           "client_id": "569265063710-833c0adlb7uvhgo2i3d3um8e6e09d8b7.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.ybebrightapp",
+            "package_name": "com.zidan.ybebrightapp",
             "certificate_hash": "842161dacb3695ecd43033ece60d9c915949df58"
           }
         },

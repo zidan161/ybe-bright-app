@@ -17,6 +17,11 @@
         android:icon="@drawable/ic_hidok"/>
 
     <item
+        android:id="@+id/order"
+        android:title="Transaksi"
+        android:icon="@drawable/ic_order"/>
+
+    <item
         android:id="@+id/profile"
         android:title="Profile"
         android:icon="@drawable/ic_profile"/>

@@ -13,8 +13,8 @@ android {
         applicationId "com.zidan.ybebrightapp"
         minSdkVersion 21
         targetSdkVersion 31
-        versionCode 1
-        versionName "1.0"
+        versionCode 1.1
+        versionName "1.0.1"
         multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -77,4 +77,6 @@ dependencies {
     //Midtrans
     implementation 'com.midtrans:uikit:1.28.0-SANDBOX'
     implementation 'io.fotoapparat:fotoapparat:2.7.0'
+
+    implementation 'com.google.firebase:firebase-auth-ktx'
 }

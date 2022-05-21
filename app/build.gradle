@@ -13,13 +13,13 @@ android {
         applicationId "com.zidan.ybebrightapp"
         minSdkVersion 21
         targetSdkVersion 31
-        versionCode 1.1
-        versionName "1.0.1"
+        versionCode 2
+        versionName "2.0"
         multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField "String", "BASE_URL", "\"https://api-ybebright.000webhostapp.com/charge/index.php/\""
-        buildConfigField "String", "CLIENT_KEY", "\"SB-Mid-client-xt6tJWhYkJEkviK0\""
+        buildConfigField "String", "CLIENT_KEY", "\"Mid-client-iKNR9fdyFTMtpElL\""
     }
 
     buildTypes {
@@ -75,7 +75,9 @@ dependencies {
     implementation 'com.github.Drjacky:ImagePicker:2.1.13'
     implementation 'me.himanshusoni.chatmessageview:chat-message-view:1.0.7'
     //Midtrans
-    implementation 'com.midtrans:uikit:1.28.0-SANDBOX'
+    // Demo
+//    implementation 'com.midtrans:uikit:1.28.0-SANDBOX'
+    implementation 'com.midtrans:uikit:1.31.1'
     implementation 'io.fotoapparat:fotoapparat:2.7.0'
 
     implementation 'com.google.firebase:firebase-auth-ktx'

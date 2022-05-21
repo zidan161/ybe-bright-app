@@ -38,6 +38,11 @@ class ConsulActivity : AppCompatActivity() {
 
         preferences = getSharedPreferences("myShared", MODE_PRIVATE)
 
+        if (member == null) {
+            binding.mainView.visibility = View.GONE
+            binding.sorryView.visibility = View.VISIBLE
+        }
+
         val factory = ViewModelFactory.getInstance(this)
         val viewModel = ViewModelProvider(this, factory)[HiDokViewModel::class.java]
 
